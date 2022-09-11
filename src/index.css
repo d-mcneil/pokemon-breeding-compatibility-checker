@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+.list{
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+li{
+  list-style: none;
+  min-width: 150px;
+  padding-right: 10px;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.push{
+  margin-left: auto;
+}
+
+img{
+  max-width: 90%;
+  max-height: 40vh;
+}
