@@ -58,7 +58,11 @@ class App extends Component {
         <div className='container-fluid text-center'>
           <div className='row'>
             <div className='col-12 col-lg-6'>
-              <PokemonList onSelectPokemon={this.onSelectPokemon} filteredPokemonObjectArray={filteredPokemonObjectArray}/>
+              <PokemonList 
+                onSelectPokemon={this.onSelectPokemon} 
+                filteredPokemonObjectArray={filteredPokemonObjectArray}
+                autoSelectPokemon={this.autoSelectPokemon}
+              />
               <SearchBox onSearchChange={this.onSearchChange}/>
               <SelectedPokemon currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}/>
             </div>
@@ -72,7 +76,11 @@ class App extends Component {
       return (
         <div className='container-fluid text-center'>
           <div className='col-12 col-lg-6'>
-            <PokemonList onSelectPokemon={this.onSelectPokemon} filteredPokemonObjectArray={filteredPokemonObjectArray}/>
+            <PokemonList 
+              onSelectPokemon={this.onSelectPokemon} 
+              filteredPokemonObjectArray={filteredPokemonObjectArray}
+              autoSelectPokemon={this.autoSelectPokemon}
+            />
             <SearchBox onSearchChange={this.onSearchChange}/>
             <h1>Select a Pokemon!</h1>
           </div>
@@ -108,6 +116,11 @@ class App extends Component {
 
   onSelectPokemon = (event) => {
     const url = event.target.value;
+    this.setPokemonPictureUrl(url);
+    this.setEggGroupsAndPokemonName(url)
+  }
+
+  autoSelectPokemon = (url) => {
     this.setPokemonPictureUrl(url);
     this.setEggGroupsAndPokemonName(url)
   }
