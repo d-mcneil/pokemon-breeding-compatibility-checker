@@ -9,6 +9,8 @@ class SameEggGroupList extends Component {
     }
 
     componentDidMount() {
+
+        // set the state for sameEggGroupPokemonObjectArray
         const { eggGroupUrl } = this.props;
         fetch(eggGroupUrl).then(response => response.json())
             .then(data => data.pokemon_species.map(pokemonObject => {
@@ -28,18 +30,20 @@ class SameEggGroupList extends Component {
                 return pokemonObject;
 
             })).then(pokemonObjectArray => this.setState({sameEggGroupPokemonObjectArray:pokemonObjectArray}))
-
     }
 
     render(){
-        const { eggGroupName } = this.props;
+        const { eggGroupName, filterfield } = this.props;
+        const filteredEggGroupPokemonObjects = this.state.sameEggGroupPokemonObjectArray.filter(pokemonObject => {
+            return pokemonObject.name.toLowerCase().includes(filterfield.toLowerCase())
+        })
         return(
             <>
                 <h1>{eggGroupName}</h1>
                 <div className="row justify-content-center">
                     <ul className="col-auto list">
                     {
-                        this.state.sameEggGroupPokemonObjectArray.map(pokemonObject => {
+                        filteredEggGroupPokemonObjects.map(pokemonObject => {
                             return (
                                 <li className="d-flex" key={pokemonObject.stringDexNumber}>
                                     {pokemonObject.stringDexNumber}   <span className="push">{pokemonObject.name}</span>
