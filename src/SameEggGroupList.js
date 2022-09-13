@@ -35,8 +35,8 @@ class SameEggGroupList extends Component {
     render(){
         const { eggGroupName, filterfield } = this.props;
         const filteredEggGroupPokemonObjects = this.state.sameEggGroupPokemonObjectArray.filter(pokemonObject => {
-            return pokemonObject.name.toLowerCase().includes(filterfield.toLowerCase())
-        })
+            return pokemonObject.name.toLowerCase().includes(filterfield.toLowerCase());
+        });
         return(
             <>
                 <h1>{eggGroupName}</h1>
@@ -45,16 +45,21 @@ class SameEggGroupList extends Component {
                     {
                         filteredEggGroupPokemonObjects.map(pokemonObject => {
                             return (
-                                <li className="d-flex" key={pokemonObject.stringDexNumber}>
-                                    {pokemonObject.stringDexNumber}   <span className="push">{pokemonObject.name}</span>
+                                <li key={pokemonObject.stringDexNumber}>
+                                    {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
                                 </li>
+                                // <li className="d-flex" key={pokemonObject.stringDexNumber}>
+                                //     {pokemonObject.stringDexNumber} <span className="push">{pokemonObject.name}</span>
+                                // </li>
+                                // these lines I used to push the name to the right of the li and keep the dex number at the left
+                                // however, I wasn´t able to do the same with the select box, so I removed the feature
                             )
                         })
                     }
                     </ul>
                 </div>
             </>
-        )
+        );
     }
 }
 

@@ -2,28 +2,51 @@ body {
   margin: 0;
 }
 
-.list{
-  height: 60vh;
-  overflow-y: scroll;
+#whole-page-min-height {
+  min-height: 100vh;
 }
 
-li{
-  list-style: none;
-  min-width: 150px;
-  padding-right: 10px;
-}
-
-ul {
-  margin: 0;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.push{
-  margin-left: auto;
+#height-100{
+  height: 100%;
 }
 
 img{
   max-width: 90%;
   max-height: 40vh;
 }
+
+.list{
+  height: 60vh;
+  overflow-y: scroll;
+  margin: 0;
+  border: 1px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  padding: 1px 2px;
+  width: 11rem;
+  margin-bottom: 3px;
+}
+
+li{
+  list-style: none;
+  padding-right: 10px;
+  text-align: start;
+  padding-left: 2px;
+  padding-bottom: 1px;
+}
+
+option{
+  padding-right: 10px;
+}
+
+select, input{
+  padding: 1px 2px;
+  width: 11rem;
+}
+/* .push{
+  margin-left: auto;
+}  
+these lines I used to push the name to the right of the li and keep the dex number at the left
+however, I wasn´t able to do the same with the select box, so I removed the feature */
+

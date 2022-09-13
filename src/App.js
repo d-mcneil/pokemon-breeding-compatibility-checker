@@ -1,100 +1,45 @@
-import React, { Component } from 'react';
-import EggGroup from './EggGroup';
-import PokemonList from './PokemonList'
-import SearchBox from './SearchBox';
-import SelectedPokemon from './SelectedPokemon'
+import React, { Component} from "react";
+import PokemonSelector from "./PokemonSelector";
+import EggGroupWrapper from "./EggGroupWrapper";
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state = {
-      completePokemonObjectArray: [],
-      searchfield: '',
-      currentlySelectedPokemonPictureUrl: '',
-      eggGroups:[],
-      currentlySelectedPokemonName:''
-    }
+  constructor() {
+      super()
+      this.state = {
+        currentlySelectedPokemonPictureUrl: '',
+        eggGroups:[],
+        currentlySelectedPokemonName:''
+      }
   }
 
-  componentDidMount(){
-
-    // populating complete pokemon array
-    fetch('https://pokeapi.co/api/v2/pokemon-species/?limit=905')
-      .then(response => response.json())
-      .then(data => data.results.map((pokemonObject, index) => {
-        
-        // adding dex number for each pokemon object
-        pokemonObject.dexNumber = index + 1;
-
-        // converting every dex number to a 3-digit string
-        let stringDexNumber = pokemonObject.dexNumber.toString();
-        if (stringDexNumber.length === 1){
-            stringDexNumber = '00'.concat(stringDexNumber);
-        } else if(stringDexNumber.length === 2){
-            stringDexNumber = '0'.concat(stringDexNumber);
-        }
-        pokemonObject.stringDexNumber = stringDexNumber;
-
-        // returning a pokemon object with: {name, url, dexNumber, stringDexNumber}
-        return pokemonObject;
-
-      }))
-      .then(completePokemonObjectArray => this.setState({ completePokemonObjectArray: completePokemonObjectArray }))
-  }
-
-   
   render(){
-    const {
-      completePokemonObjectArray, 
-      searchfield, currentlySelectedPokemonPictureUrl,
-      eggGroups, currentlySelectedPokemonName } = this.state;
-    
-    const filteredPokemonObjectArray = completePokemonObjectArray.filter( pokemonObject => {
-      return pokemonObject.name.toLowerCase().includes(searchfield.toLowerCase())
-    })
+    const { currentlySelectedPokemonPictureUrl, eggGroups, 
+      currentlySelectedPokemonName} = this.state;
 
-    if (currentlySelectedPokemonPictureUrl.length){
-      return (
-        <div className='container-fluid text-center'>
-          <div className='row'>
-            <div className='col-12 col-lg-6'>
-              <PokemonList 
-                onSelectPokemon={this.onSelectPokemon} 
-                filteredPokemonObjectArray={filteredPokemonObjectArray}
+    return (
+      <div className='container-fluid text-center' >
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='row align-items-center' id='whole-page-min-height'>
+              <PokemonSelector 
+                currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}
+                onSelectPokemon={this.onSelectPokemon}
                 autoSelectPokemon={this.autoSelectPokemon}
+                currentlySelectedPokemonName={currentlySelectedPokemonName} 
               />
-              <SearchBox onSearchChange={this.onSearchChange}/>
-              <SelectedPokemon currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}/>
             </div>
-            <div className='col-12 col-lg-6'>
-              <EggGroup eggGroups={eggGroups} currentlySelectedPokemonName={currentlySelectedPokemonName}/>
-            </div>
-          </div> 
-        </div>  
-      );
-    } else {
-      return (
-        <div className='container-fluid text-center'>
-          <div className='col-12 col-lg-6'>
-            <PokemonList 
-              onSelectPokemon={this.onSelectPokemon} 
-              filteredPokemonObjectArray={filteredPokemonObjectArray}
-              autoSelectPokemon={this.autoSelectPokemon}
-            />
-            <SearchBox onSearchChange={this.onSearchChange}/>
-            <h1>Select a Pokemon!</h1>
           </div>
           <div className='col-12 col-lg-6'>
-            Something will go here
+            <div className="row align-items-center justify-content-center" id="height-100">
+              <EggGroupWrapper 
+                eggGroups={eggGroups} 
+                currentlySelectedPokemonName={currentlySelectedPokemonName}
+              />
+            </div>
           </div>
-          
-        </div>
-      ) 
-    }
-  }
-
-  onSearchChange = (event) => {
-    this.setState({searchfield:event.target.value})
+        </div> 
+      </div>  
+    );
   }
 
   // called in onSelectPokemon
@@ -109,20 +54,28 @@ class App extends Component {
   setEggGroupsAndPokemonName = (eggGroupUrl) => {
     fetch(eggGroupUrl).then(response => response.json())
       .then(data => {
-        this.setState({eggGroups:data.egg_groups});
         this.setState({currentlySelectedPokemonName:data.name});
+        // ditto is a unique pokemon, so the data has to be slightly altered if ditto is selected
+        if (data.name === 'ditto') {
+          this.setState({eggGroups: [{
+            name: 'no-eggs',
+            url: 'https://pokeapi.co/api/v2/egg-group/no-eggs'
+          }]})
+        } else {;
+          this.setState({eggGroups:data.egg_groups});
+        }
       })
   }
 
   onSelectPokemon = (event) => {
     const url = event.target.value;
     this.setPokemonPictureUrl(url);
-    this.setEggGroupsAndPokemonName(url)
+    this.setEggGroupsAndPokemonName(url);
   }
 
   autoSelectPokemon = (url) => {
     this.setPokemonPictureUrl(url);
-    this.setEggGroupsAndPokemonName(url)
+    this.setEggGroupsAndPokemonName(url);
   }
 }
 

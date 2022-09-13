@@ -1,19 +1,21 @@
 import React from 'react';
 
-const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, autoSelectPokemon }) {
+const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, autoSelectPokemon, currentlySelectedPokemonName }) {
     const onEnterSelectPokemon = (event) => {
-        if (event.code === 'Enter'){
-            onSelectPokemon(event)
+        if (event.code === 'Enter' && event.target.value){
+            onSelectPokemon(event);
         }
     }
 
-    if (filteredPokemonObjectArray.length === 1) {
-        autoSelectPokemon(filteredPokemonObjectArray[0].url)
+    if (filteredPokemonObjectArray.length === 1 
+        && filteredPokemonObjectArray[0].name !== currentlySelectedPokemonName) 
+    {
+        autoSelectPokemon(filteredPokemonObjectArray[0].url);
     }
 
     return(
         <>
-            <select name={'pokemon'} size={10} onKeyPress={onEnterSelectPokemon}>
+            <select name={'pokemon'} size={10} onKeyDown={onEnterSelectPokemon}>
                 {
                     filteredPokemonObjectArray.map(pokemonObject => {
                         
@@ -21,11 +23,11 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
                         return (
                             <option value={pokemonObject.url} 
                                     key={pokemonObject.dexNumber}
-                                    onClick={onSelectPokemon}
-                            >
-                                {pokemonObject.stringDexNumber} {pokemonObject.name}
+                                    onClick={onSelectPokemon} 
+                            >                            
+                                    {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
                             </option>
-                        )
+                        );
                     })
                 }
             </select>
