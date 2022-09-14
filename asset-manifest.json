@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/pokemon-breeding-compatibility-checker/static/css/main.d6d56bff.css",
+    "main.js": "/pokemon-breeding-compatibility-checker/static/js/main.06b11d51.js",
+    "static/js/787.54def763.chunk.js": "/pokemon-breeding-compatibility-checker/static/js/787.54def763.chunk.js",
+    "static/media/background2.png": "/pokemon-breeding-compatibility-checker/static/media/background2.bbec109a7b9df4d17a5b.png",
+    "index.html": "/pokemon-breeding-compatibility-checker/index.html",
+    "main.d6d56bff.css.map": "/pokemon-breeding-compatibility-checker/static/css/main.d6d56bff.css.map",
+    "main.06b11d51.js.map": "/pokemon-breeding-compatibility-checker/static/js/main.06b11d51.js.map",
+    "787.54def763.chunk.js.map": "/pokemon-breeding-compatibility-checker/static/js/787.54def763.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6d56bff.css",
+    "static/js/main.06b11d51.js"
+  ]
+}
