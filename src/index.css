@@ -1,5 +1,16 @@
 body {
   margin: 0;
+  /* https://cdn.wallpapersafari.com/85/89/6lOBvr.png */
+  background: url(./background2.png) no-repeat center center fixed;
+  background-size: cover;
+}
+
+#select-a-pokemon {
+  border-radius: 3px;
+  margin-bottom: 50px;
+  width: fit-content;
+  display: inline-block;
+  padding: 10px;
 }
 
 #whole-page-min-height {
@@ -19,34 +30,195 @@ img{
   height: 60vh;
   overflow-y: scroll;
   margin: 0;
-  border: 1px;
-  border-style: inset;
-  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-  border-image: initial;
-  padding: 1px 2px;
-  width: 11rem;
-  margin-bottom: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 li{
   list-style: none;
-  padding-right: 10px;
   text-align: start;
   padding-left: 2px;
   padding-bottom: 1px;
 }
 
-option{
+option, li{
   padding-right: 10px;
+  font-size: 1.1rem;
 }
 
-select, input{
+select, input, .list{
   padding: 1px 2px;
-  width: 11rem;
+  min-width: 12rem;
 }
+
+input{
+  border-radius: 3px;
+}
+
+#search {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+select, 
+input, 
+#details, 
+#heading,
+#select-a-pokemon {
+  background-color: rgba(240, 240, 240, .5);
+  border-width: 1px;
+  border-style: inset;
+  border-color: rgb(118, 118, 118);
+} 
+
+select{
+  margin-bottom: -2px !important;
+  border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.tight{
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+.wrapper-title-list {
+  margin-bottom: 20px;
+  margin-top: 12px;
+}
+
+.wrapper-header-details {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.wrapper-list-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.egg-group-title{
+  display: inline-block;
+  min-width: 12rem;
+  margin-bottom: 0px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+#heading {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: none !important;
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#details{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top: none !important;
+  padding-bottom: 3px;
+  margin-bottom: 0px;
+}
+
+#filter,
+.tight,
+#select-a-pokemon {
+  box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 15px;
+}
+
+/* https://bulbapedia.bulbagarden.net/wiki/Egg_Group */
+.Monster{
+  background: rgba(210, 80, 100, .5);
+  border: 1px solid #933846;
+}
+
+/* humanshape */
+.Human-Like{
+  background: rgba(210, 150, 130, .5);
+  border: 1px solid #93695B;
+}
+
+.Water1{
+  background: rgba(151, 181, 253, .5);
+  border: 1px solid #697FB1;
+}
+
+.Water2{
+  background: rgba(114, 154, 250, .5);
+  border: 1px solid #506CAF;
+}
+
+.Water3{
+  background: rgba(88, 118, 190, .5);
+  border: 1px solid #3D5285;
+}
+
+.Bug{
+  background: rgba(170, 194, 42, .5);
+  border: 1px solid #77881D;
+}
+
+.Mineral{
+  background: rgba(122, 98, 82, .5);
+  border: 1px solid #554439;
+}
+
+.Flying{
+  background: rgba(178, 154, 250, .5);
+  border: 1px solid #7C6CAF;
+}
+
+.Amorphous{
+  background: rgba(138, 138, 138, .5);
+  border: 1px solid #606060;
+}
+
+/* ground */
+.Field{
+  background: rgba(224, 192, 104, .5);
+  border: 1px solid #9D8649;
+}
+
+.Fairy{
+  background: rgba(255, 200, 240, .5);
+  border: 1px solid #B38CA8;
+}
+
+.Ditto{
+  background: rgba(166, 100, 191, .5);
+  border: 1px solid #744686;
+}
+
+/* plant */
+.Grass{
+  background: rgba(130, 210, 90, .5);
+  border: 1px solid #5B933F;
+}
+
+.Dragon{
+  background: rgba(122, 66, 255, .5);
+  border: 1px solid #552EB3;
+}
+
+.No-Eggs{
+  background: rgba(51, 51, 51, .5);
+  border: 1px solid #232323;
+  /* color: #f0f0f0; */
+}
+
 /* .push{
   margin-left: auto;
 }  
 these lines I used to push the name to the right of the li and keep the dex number at the left
 however, I wasn´t able to do the same with the select box, so I removed the feature */
-

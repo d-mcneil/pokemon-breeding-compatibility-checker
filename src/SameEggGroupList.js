@@ -15,6 +15,9 @@ class SameEggGroupList extends Component {
         fetch(eggGroupUrl).then(response => response.json())
             .then(data => data.pokemon_species.map(pokemonObject => {
                 
+                // fix capitalization and punctuation in names
+                pokemonObject.name = this.props.cleanPokemonName(pokemonObject.name);
+
                 // adding dex number to pokemon object
                 let stringDexNumber = pokemonObject.url.replace('https://pokeapi.co/api/v2/pokemon-species/','').replace('/','');
                 
@@ -33,15 +36,24 @@ class SameEggGroupList extends Component {
     }
 
     render(){
-        const { eggGroupName, filterfield } = this.props;
+        const { filterfield, currentlySelectedPokemonName, eggGroupName } = this.props;
+        
+        let eggGroupClass;
+        if (currentlySelectedPokemonName === 'Ditto') {
+            eggGroupClass = 'Ditto';
+        } else {
+            eggGroupClass = eggGroupName;
+        }
+
         const filteredEggGroupPokemonObjects = this.state.sameEggGroupPokemonObjectArray.filter(pokemonObject => {
             return pokemonObject.name.toLowerCase().includes(filterfield.toLowerCase());
         });
+
         return(
-            <>
-                <h1>{eggGroupName}</h1>
+            <div className="tight wrapper-title-list"> 
+                <h2 className={`egg-group-title ${eggGroupClass}`}>{eggGroupName}</h2>
                 <div className="row justify-content-center">
-                    <ul className="col-auto list">
+                    <ul className={`col-auto list ${eggGroupClass}`}>
                     {
                         filteredEggGroupPokemonObjects.map(pokemonObject => {
                             return (
@@ -58,7 +70,7 @@ class SameEggGroupList extends Component {
                     }
                     </ul>
                 </div>
-            </>
+            </div>
         );
     }
 }

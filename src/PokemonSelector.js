@@ -18,24 +18,26 @@ class PokemonSelector extends Component {
         fetch('https://pokeapi.co/api/v2/pokemon-species/?limit=905')
             .then(response => response.json())
             .then(data => data.results.map((pokemonObject, index) => {
-      
-        // adding dex number for each pokemon object
-        pokemonObject.dexNumber = index + 1;
 
-        // converting every dex number to a 3-digit string
-        let stringDexNumber = pokemonObject.dexNumber.toString();
-        if (stringDexNumber.length === 1){
-            stringDexNumber = '00'.concat(stringDexNumber);
-        } else if(stringDexNumber.length === 2){
-            stringDexNumber = '0'.concat(stringDexNumber);
-        }
-        pokemonObject.stringDexNumber = stringDexNumber;
+                // fix capitalization and punctuation in names
+                pokemonObject.name = this.props.cleanPokemonName(pokemonObject.name);
 
-        // returning a pokemon object with: {name, url, dexNumber, stringDexNumber}
-        return pokemonObject;
+                // adding dex number for each pokemon object
+                pokemonObject.dexNumber = index + 1;
 
-        })).then(completePokemonObjectArray => this.setState({ completePokemonObjectArray: completePokemonObjectArray }))
+                // converting every dex number to a 3-digit string
+                let stringDexNumber = pokemonObject.dexNumber.toString();
+                if (stringDexNumber.length === 1){
+                    stringDexNumber = '00'.concat(stringDexNumber);
+                } else if(stringDexNumber.length === 2){
+                    stringDexNumber = '0'.concat(stringDexNumber);
+                }
+                pokemonObject.stringDexNumber = stringDexNumber;
 
+                // returning a pokemon object with: {name, url, dexNumber, stringDexNumber}
+                return pokemonObject;
+
+            })).then(completePokemonObjectArray => this.setState({ completePokemonObjectArray: completePokemonObjectArray }))
     }
 
     render() {
@@ -52,13 +54,15 @@ class PokemonSelector extends Component {
         return (
             <>
                 <div className='col-12'>
-                    <PokemonList 
-                        onSelectPokemon={onSelectPokemon} 
-                        filteredPokemonObjectArray={filteredPokemonObjectArray}
-                        autoSelectPokemon={autoSelectPokemon}
-                        currentlySelectedPokemonName={currentlySelectedPokemonName}
-                    /><br></br>
-                    <SearchBox onSearchChange={this.onSearchChange}/>
+                    <div className='tight wrapper-list-search'>
+                        <PokemonList 
+                            onSelectPokemon={onSelectPokemon} 
+                            filteredPokemonObjectArray={filteredPokemonObjectArray}
+                            autoSelectPokemon={autoSelectPokemon}
+                            currentlySelectedPokemonName={currentlySelectedPokemonName}
+                        /><br></br>
+                        <SearchBox onSearchChange={this.onSearchChange}/>
+                    </div>
                 </div>
                 <div>
                     <SelectedPokemonImage 

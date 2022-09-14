@@ -3,11 +3,11 @@ import React from "react";
 const SelectedPokemonImage = ({currentlySelectedPokemonPictureUrl, currentlySelectedPokemonName}) => {
     if (currentlySelectedPokemonName) {
         return(
-            <img src={currentlySelectedPokemonPictureUrl}></img>
+            <img src={currentlySelectedPokemonPictureUrl} alt={currentlySelectedPokemonName}></img>
         );
     } else {
         return(
-            <h1>Select a pokemon!</h1>
+            <h1 id="select-a-pokemon">Select a pokemon!</h1>
         );
     }
 }

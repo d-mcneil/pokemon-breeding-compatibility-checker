@@ -12,22 +12,33 @@ class EggGroupWrapper extends Component {
     }
 
     render() {
-        const { eggGroups, currentlySelectedPokemonName } = this.props;
+        const { eggGroups, currentlySelectedPokemonName, cleanPokemonName } = this.props;
         const { filterfield } = this.state; 
-        
+
+        // fix capitalization and punctuation in egg group names
+        const cleanEggGroups = eggGroups.map(eggGroup => {
+            let { name, url } = eggGroup;
+            name = this.cleanEggGroupName(name)
+            return { name, url }
+        })
+
         return(
             <>
                 <div className="col-12">
-                    <h2>
+                    <div className="tight wrapper-header-details">
                         <EggGroupHeader 
                             currentlySelectedPokemonName={currentlySelectedPokemonName}
-                            eggGroups={eggGroups} 
+                            eggGroups={cleanEggGroups} 
                         />
-                    </h2>
+                    </div>
                 </div>
                 <div className="col-12">
-                    <EggGroups filterfield={filterfield} eggGroups={eggGroups}/>
-                    <FilterBox eggGroups={eggGroups} onFilterChange={this.onFilterChange}/>
+                    <FilterBox eggGroups={eggGroups} onFilterChange={this.onFilterChange}/><br></br>
+                    <EggGroups 
+                        filterfield={filterfield} 
+                        eggGroups={cleanEggGroups} 
+                        cleanPokemonName={cleanPokemonName}
+                        currentlySelectedPokemonName={currentlySelectedPokemonName}/>
                 </div>   
                 
             </>
@@ -37,6 +48,22 @@ class EggGroupWrapper extends Component {
     onFilterChange = (event) => {
         this.setState({filterfield:event.target.value});
     }
+
+    cleanEggGroupName = (eggGroupName) => {
+        if (eggGroupName === 'no-eggs'){
+            return 'No-Eggs';
+        } else if (eggGroupName === 'ground'){
+            return 'Field';
+        } else if (eggGroupName === 'humanshape'){
+            return 'Human-Like';
+        } else if (eggGroupName === 'plant'){
+            return 'Grass';
+        } else if (eggGroupName === 'indeterminate'){
+            return 'Amorphous';
+        }else {
+            return eggGroupName.charAt(0).toUpperCase() + eggGroupName.slice(1);
+        }
+    }    
 }
 
 export default EggGroupWrapper;
