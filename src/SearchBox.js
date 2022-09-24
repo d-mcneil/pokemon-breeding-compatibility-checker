@@ -6,7 +6,7 @@ const SearchBox = ({ onSearchChange }) => {
             <input
                 id="search"
                 type='search' 
-                placeholder='Search Pokemon'
+                placeholder='Search Pokémon'
                 onChange={onSearchChange}
             ></input>
         </>

@@ -1,6 +1,8 @@
 import React, { Component} from "react";
 import PokemonSelector from "./PokemonSelector";
 import EggGroupWrapper from "./EggGroupWrapper";
+import LogoWrapperSmallScreen from "./LogoWrapperSmallScreen";
+import LogoWrapperLargeScreen from "./LogoWrapperLargeScreen";
 
 class App extends Component {
   constructor() {
@@ -19,8 +21,9 @@ class App extends Component {
     return (
       <div className='container-fluid text-center' >
         <div className='row'>
-          <div className='col-12 col-lg-5'>
-            <div className='row align-items-center' id='whole-page-min-height'>
+          <LogoWrapperSmallScreen currentlySelectedPokemonName={currentlySelectedPokemonName}/>
+          <div className='col-12 col-lg-5 d-flex justify-content-center'>
+            <div className='row align-items-center'>
               <PokemonSelector 
                 currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}
                 onSelectPokemon={this.onSelectPokemon}
@@ -30,15 +33,12 @@ class App extends Component {
               />
             </div>
           </div>
-          <div className='col-12 col-lg-7'>
-            <div className="row align-items-center justify-content-center" id="height-100">
-              <EggGroupWrapper 
-                eggGroups={eggGroups} 
-                currentlySelectedPokemonName={currentlySelectedPokemonName}
-                cleanPokemonName={this.cleanPokemonName} 
-              />
-            </div>
-          </div>
+          <LogoWrapperLargeScreen currentlySelectedPokemonName={currentlySelectedPokemonName}/>
+          <EggGroupWrapper 
+            eggGroups={eggGroups} 
+            currentlySelectedPokemonName={currentlySelectedPokemonName}
+            cleanPokemonName={this.cleanPokemonName} 
+          />
         </div> 
       </div>  
     );

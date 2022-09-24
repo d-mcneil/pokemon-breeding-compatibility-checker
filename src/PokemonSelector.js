@@ -54,6 +54,7 @@ class PokemonSelector extends Component {
         return (
             <>
                 <div className='col-12'>
+                    {/* this was used when the select element and the search box were tight together 
                     <div className='tight wrapper-list-search'>
                         <PokemonList 
                             onSelectPokemon={onSelectPokemon} 
@@ -62,14 +63,19 @@ class PokemonSelector extends Component {
                             currentlySelectedPokemonName={currentlySelectedPokemonName}
                         /><br></br>
                         <SearchBox onSearchChange={this.onSearchChange}/>
-                    </div>
+                    </div> */}
+                    <PokemonList 
+                            onSelectPokemon={onSelectPokemon} 
+                            filteredPokemonObjectArray={filteredPokemonObjectArray}
+                            autoSelectPokemon={autoSelectPokemon}
+                            currentlySelectedPokemonName={currentlySelectedPokemonName}
+                    /><br></br>
+                    <SearchBox onSearchChange={this.onSearchChange}/>
                 </div>
-                <div>
-                    <SelectedPokemonImage 
-                        currentlySelectedPokemonName={currentlySelectedPokemonName}
-                        currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}
-                    />
-                </div>
+                <SelectedPokemonImage 
+                    currentlySelectedPokemonName={currentlySelectedPokemonName}
+                    currentlySelectedPokemonPictureUrl={currentlySelectedPokemonPictureUrl}
+                />
             </>
             
             

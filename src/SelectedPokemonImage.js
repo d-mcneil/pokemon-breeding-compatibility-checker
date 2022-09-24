@@ -1,13 +1,21 @@
 import React from "react";
+import egg from './egg.png'
 
 const SelectedPokemonImage = ({currentlySelectedPokemonPictureUrl, currentlySelectedPokemonName}) => {
     if (currentlySelectedPokemonName) {
         return(
-            <img src={currentlySelectedPokemonPictureUrl} alt={currentlySelectedPokemonName}></img>
+            <div>
+                <img src={currentlySelectedPokemonPictureUrl} 
+                alt={currentlySelectedPokemonName}
+                className="pokemon-image"></img>
+            </div>
         );
     } else {
         return(
-            <h1 id="select-a-pokemon">Select a pokemon!</h1>
+            // <h1 id="select-a-pokemon">Select a Pokémon!</h1>
+            <div>
+                <img src={egg} alt='egg' id="egg"></img>
+            </div>
         );
     }
 }

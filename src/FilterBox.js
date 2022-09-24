@@ -6,7 +6,7 @@ const FilterBox = ({ onFilterChange, eggGroups }) => {
             <input
                 id="filter"
                 type='search' 
-                placeholder='Filter Pokemon'
+                placeholder='Filter Pokémon'
                 onChange={onFilterChange}
             ></input>            
         );

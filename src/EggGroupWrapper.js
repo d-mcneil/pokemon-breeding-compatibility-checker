@@ -22,27 +22,32 @@ class EggGroupWrapper extends Component {
             return { name, url }
         })
 
-        return(
-            <>
-                <div className="col-12">
-                    <div className="tight wrapper-header-details">
-                        <EggGroupHeader 
-                            currentlySelectedPokemonName={currentlySelectedPokemonName}
-                            eggGroups={cleanEggGroups} 
-                        />
+        if (currentlySelectedPokemonName) {
+            return(
+                <div className='col-12 col-lg-7'>
+                    <div className="row align-items-center justify-content-center whole-page-min-height">
+                        <div className="col-12">
+                            <div className="tight wrapper-header-details">
+                                <EggGroupHeader 
+                                    currentlySelectedPokemonName={currentlySelectedPokemonName}
+                                    eggGroups={cleanEggGroups} 
+                                />
+                            </div>
+                        </div>
+                        <div className="col-12">
+                            <FilterBox eggGroups={eggGroups} onFilterChange={this.onFilterChange}/><br></br>
+                            <EggGroups 
+                                filterfield={filterfield} 
+                                eggGroups={cleanEggGroups} 
+                                cleanPokemonName={cleanPokemonName}
+                                currentlySelectedPokemonName={currentlySelectedPokemonName}/>
+                        </div>   
                     </div>
                 </div>
-                <div className="col-12">
-                    <FilterBox eggGroups={eggGroups} onFilterChange={this.onFilterChange}/><br></br>
-                    <EggGroups 
-                        filterfield={filterfield} 
-                        eggGroups={cleanEggGroups} 
-                        cleanPokemonName={cleanPokemonName}
-                        currentlySelectedPokemonName={currentlySelectedPokemonName}/>
-                </div>   
-                
-            </>
-        );
+            );
+        }
+        
+        
     }
 
     onFilterChange = (event) => {

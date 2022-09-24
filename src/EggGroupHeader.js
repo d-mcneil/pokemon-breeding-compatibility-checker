@@ -6,11 +6,11 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
             return (
                 <>
                     <h4 id="heading">
-                        {currentlySelectedPokemonName} is the only Pokemon in the Ditto egg group.
+                        {currentlySelectedPokemonName} is the only Pokémon in the Ditto egg group.
                     </h4>
                     <h6 id="details">
                         That isn't a typo; {currentlySelectedPokemonName} is literally in the Ditto egg group.
-                        It can breed with all Pokemon... except those in the list below, which make up the No-Eggs egg group.
+                        It can breed with all Pokémon... except those in the list below, which make up the No-Eggs egg group.
                     </h6>
                 </>
             );
@@ -21,7 +21,7 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
                         {currentlySelectedPokemonName} is in the {eggGroups[0].name} egg group. <br></br> 
                     </h4>
                     <h6 id="details">
-                        In addition to the Pokemon below, {currentlySelectedPokemonName} can't breed.
+                        In addition to the Pokémon below, {currentlySelectedPokemonName} can't breed.
                     </h6>    
                 </>
             );
@@ -32,7 +32,7 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
                         {currentlySelectedPokemonName} is in the {eggGroups[0].name} egg group.
                     </h4>
                     <h6 id="details">
-                        {currentlySelectedPokemonName} can breed with any of the Pokemon below.
+                        {currentlySelectedPokemonName} can breed with any of the Pokémon below.
                     </h6>
                 </>    
             );
@@ -44,7 +44,7 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
                     {currentlySelectedPokemonName} is in the {eggGroups[0].name} and {eggGroups[1].name} egg groups.
                 </h4>
                 <h6 id="details">
-                    {currentlySelectedPokemonName} can breed with any of the Pokemon below.
+                    {currentlySelectedPokemonName} can breed with any of the Pokémon below.
                 </h6>
             </>
         );

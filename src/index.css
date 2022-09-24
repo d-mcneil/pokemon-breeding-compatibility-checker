@@ -5,25 +5,28 @@ body {
   background-size: cover;
 }
 
-#select-a-pokemon {
+/* this was used for the select-a-pokemon text block that was replaced by the picture of the egg */
+/* #select-a-pokemon {
   border-radius: 3px;
   margin-bottom: 50px;
   width: fit-content;
   display: inline-block;
   padding: 10px;
-}
+} */
 
-#whole-page-min-height {
+.whole-page-min-height {
   min-height: 100vh;
-}
-
-#height-100{
-  height: 100%;
 }
 
 img{
   max-width: 90%;
   max-height: 40vh;
+}
+
+#egg{
+  max-height: 35vh;
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 .list{
@@ -48,36 +51,56 @@ option, li{
   font-size: 1.1rem;
 }
 
+option{
+  cursor: pointer;
+}
+
+select {
+  margin-top: 20px;
+}
+
 select, input, .list{
   padding: 1px 2px;
   min-width: 12rem;
 }
 
-input{
+select,
+input,
+.page-title,
+.directions {
   border-radius: 3px;
 }
 
-#search {
+/* this was used when the select element and the search box were tight together */
+/* #search {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+} */
+
+#search {
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 select, 
 input, 
 #details, 
 #heading,
-#select-a-pokemon {
+#select-a-pokemon,
+.page-title,
+.directions {
   background-color: rgba(240, 240, 240, .5);
   border-width: 1px;
   border-style: inset;
   border-color: rgb(118, 118, 118);
 } 
 
-select{
+/* this was used when the select element and the search box were tight together */
+/* select{
   margin-bottom: -2px !important;
   border-bottom-left-radius: 0px;
   border-bottom-left-radius: 0px;
-}
+} */
 
 .tight{
   height: fit-content;
@@ -98,9 +121,21 @@ select{
   margin-bottom: 12px;
 }
 
-.wrapper-list-search {
+/* this was used when the select element and the search box were tight together */
+/* .wrapper-list-search {
   margin-top: 20px;
   margin-bottom: 20px;
+} */
+
+.page-title {
+  font-size: 2.5rem;
+  margin-top: 20px;
+}
+
+.directions,
+.page-title {
+  width: fit-content;
+  display: inline-block;
 }
 
 .egg-group-title{
@@ -119,21 +154,27 @@ select{
   border-bottom: none !important;
   margin-bottom: 0;
   padding-bottom: 8px;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 10px;
 }
 
 #details{
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-top: none !important;
-  padding-bottom: 3px;
+  padding-bottom: 10px;
   margin-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 #filter,
 .tight,
-#select-a-pokemon {
+select,
+.page-title,
+.directions,
+#search {
   box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 15px;
 }
 
