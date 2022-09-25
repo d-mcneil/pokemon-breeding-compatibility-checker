@@ -15,7 +15,8 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
 
     return(
         <>
-            <select name={'pokemon'} size={10} onKeyDown={onEnterSelectPokemon} className={"d-none d-md-inline-block"}
+            {/* this select element is for larger screens */}
+            <select name={'pokemon'} size={10} onKeyDown={onEnterSelectPokemon} className={"d-none d-lg-inline-block"}
             >
                 {
                     filteredPokemonObjectArray.map(pokemonObject => {
@@ -32,9 +33,11 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
                     })
                 }
             </select>
+
+            {/* this select element is for smaller screens */}
             <select name={'pokemon'} 
                 onChange={onSelectPokemon}
-                className={"d-md-none"}
+                className={"d-lg-none"}
             >
                 <option className={"text-center"} disabled selected>Select a Pokémon</option>
                 {
