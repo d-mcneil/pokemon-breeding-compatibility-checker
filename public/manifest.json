@@ -1,20 +1,25 @@
 {
-  "name": "Pok\u00e9mon Breeding Compatibility Checker",
-  "short_name": "Pok\u00e9mon Breeding",
-  "icons": [
-    {
+    "short_name": "Pok\u00e9mon Breeding",
+    "name": "Pok\u00e9mon Breeding Compatibility Checker",
+    "icons": [
+        {
+        "src": "favicon.ico",
+        "sizes": "64x64 32x32 24x24 16x16",
+        "type": "image/x-icon"
+        },
+        {
         "src": "logo192.png",
         "type": "image/png",
         "sizes": "192x192"
-      },
-      {
+        },
+        {
         "src": "logo512.png",
         "type": "image/png",
         "sizes": "512x512"
-      }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#8a94bd",
-  "background_color": "#8a94bd"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#8a94bd",
+    "background_color": "#8a94bd"
 }

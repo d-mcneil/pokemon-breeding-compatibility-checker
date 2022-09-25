@@ -15,7 +15,10 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
 
     return(
         <>
-            <select name={'pokemon'} size={10} onKeyDown={onEnterSelectPokemon}>
+            <select name={'pokemon'} size={10} 
+                onTouchStart={onSelectPokemon} 
+                onKeyDown={onEnterSelectPokemon} 
+            >
                 {
                     filteredPokemonObjectArray.map(pokemonObject => {
                         
@@ -24,7 +27,6 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
                             <option value={pokemonObject.url} 
                                     key={pokemonObject.dexNumber}
                                     onClick={onSelectPokemon}
-                                    onTouchStart={onSelectPokemon} 
                             >                            
                                     {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
                             </option>
