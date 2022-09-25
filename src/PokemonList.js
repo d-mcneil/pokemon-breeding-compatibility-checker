@@ -23,7 +23,8 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
                         return (
                             <option value={pokemonObject.url} 
                                     key={pokemonObject.dexNumber}
-                                    onClick={onSelectPokemon} 
+                                    onClick={onSelectPokemon}
+                                    onTouchStart={onSelectPokemon} 
                             >                            
                                     {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
                             </option>
