@@ -29,6 +29,11 @@ img{
   margin-bottom: 20px;
 }
 
+#eggs-image {
+  max-width: 90vw !important;
+}
+
+
 .list{
   max-height: 60vh;
   overflow-y: scroll;
