@@ -16,7 +16,7 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
     return(
         <>
             <select name={'pokemon'} size={10} 
-                onTouchStart={onSelectPokemon} 
+                onTouchEnd={onSelectPokemon} 
                 onKeyDown={onEnterSelectPokemon} 
             >
                 {
