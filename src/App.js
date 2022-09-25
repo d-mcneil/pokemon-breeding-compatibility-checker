@@ -107,6 +107,10 @@ class App extends Component {
         return 'Nidoran-M';
     } else if (pokemonName === 'flabebe'){
         return 'Flabébé';
+    } else if (pokemonName === 'sirfetchd'){
+      return 'Sirfetch\'d';
+    } else if (pokemonName === 'farfetchd'){
+      return 'Farfetch\'d';
     } else {
         return pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
     }

@@ -15,9 +15,7 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
 
     return(
         <>
-            <select name={'pokemon'} size={10} 
-                onChange={onSelectPokemon}
-                onKeyDown={onEnterSelectPokemon} 
+            <select name={'pokemon'} size={10} onKeyDown={onEnterSelectPokemon} className={"d-none d-md-inline-block"}
             >
                 {
                     filteredPokemonObjectArray.map(pokemonObject => {
@@ -26,8 +24,26 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
                         return (
                             <option value={pokemonObject.url} 
                                     key={pokemonObject.dexNumber}
-                                    // onClick={onSelectPokemon}
-                                    // onTouchStart={onSelectPokemon} 
+                                    onClick={onSelectPokemon}
+                            >                            
+                                    {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
+                            </option>
+                        );
+                    })
+                }
+            </select>
+            <select name={'pokemon'} 
+                onChange={onSelectPokemon}
+                className={"d-md-none"}
+            >
+                <option className={"text-center"} disabled selected>Select a Pokémon</option>
+                {
+                    filteredPokemonObjectArray.map(pokemonObject => {
+                        
+                        // adding option to the select list for each possible pokemon
+                        return (
+                            <option value={pokemonObject.url} 
+                                    key={pokemonObject.dexNumber}
                             >                            
                                     {pokemonObject.stringDexNumber} &nbsp; {pokemonObject.name}
                             </option>
