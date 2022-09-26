@@ -35,7 +35,7 @@ img{
 
 
 .list{
-  max-height: 60vh;
+  max-height: 50vh;
   overflow-y: scroll;
   margin: 0;
   border-bottom-left-radius: 3px;
@@ -244,6 +244,10 @@ select,
 .Ditto{
   background: rgba(166, 100, 191, .5);
   border: 1px solid #744686;
+}
+
+.Ditto-text{
+  color: rgb(166, 100, 191);
 }
 
 /* plant */

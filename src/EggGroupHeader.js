@@ -1,16 +1,16 @@
 import React from "react";
 
-const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
+const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups, currentPokemonIsGenderless }) => {
     if (eggGroups.length === 1) {
         if (currentlySelectedPokemonName === 'Ditto') {
             return (
                 <>
                     <h4 id="heading">
-                        {currentlySelectedPokemonName} is the only Pokémon in the Ditto egg group.
+                        {currentlySelectedPokemonName} is the only Pokémon in the <span className="Ditto-text">Ditto</span> egg group.
                     </h4>
                     <h6 id="details">
-                        That isn't a typo; {currentlySelectedPokemonName} is literally in the Ditto egg group.
-                        It can breed with all Pokémon... except those in the list below, which make up the No-Eggs egg group.
+                        That isn't a typo; {currentlySelectedPokemonName} is literally in the <span className="Ditto-text">Ditto</span> egg group.
+                        It can breed with all Pokémon... except for other <span className="Ditto-text">Ditto</span> and those Pokémon in the list below, which make up the No-Eggs egg group.
                     </h6>
                 </>
             );
@@ -25,6 +25,17 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
                     </h6>    
                 </>
             );
+        } else if (currentPokemonIsGenderless) {
+            return (
+                <>
+                    <h4 id="heading">
+                        {currentlySelectedPokemonName} is in the {eggGroups[0].name} egg group. <br></br> 
+                    </h4>
+                    <h6 id="details">
+                        However, {currentlySelectedPokemonName} is genderless, so it can only breed with <span className="Ditto-text">Ditto</span>.
+                    </h6>    
+                </>
+            );
         } else {
             return (
                 <>
@@ -32,22 +43,37 @@ const EggGroupHeader = ({ currentlySelectedPokemonName, eggGroups }) => {
                         {currentlySelectedPokemonName} is in the {eggGroups[0].name} egg group.
                     </h4>
                     <h6 id="details">
-                        {currentlySelectedPokemonName} can breed with any of the Pokémon below.
+                        {currentlySelectedPokemonName} can breed with <span className="Ditto-text">Ditto</span> and any of the Pokémon below.
                     </h6>
                 </>    
             );
         }
     } else if (eggGroups.length === 2) {
-        return (
-            <>
-                <h4 id="heading">
-                    {currentlySelectedPokemonName} is in the {eggGroups[0].name} and {eggGroups[1].name} egg groups.
-                </h4>
-                <h6 id="details">
-                    {currentlySelectedPokemonName} can breed with any of the Pokémon below.
-                </h6>
-            </>
-        );
+        if (currentPokemonIsGenderless) {
+            return (
+                <>
+                    <h4 id="heading">
+                        {currentlySelectedPokemonName} is in the {eggGroups[0].name} and {eggGroups[1].name} egg groups.
+                    </h4>
+                    <h6 id="details">
+                        However, {currentlySelectedPokemonName} is genderless, so it can only breed with <span className="Ditto-text">Ditto</span>.
+                    </h6>    
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <h4 id="heading">
+                        {currentlySelectedPokemonName} is in the {eggGroups[0].name} and {eggGroups[1].name} egg groups.
+                    </h4>
+                    <h6 id="details">
+                        {currentlySelectedPokemonName} can breed with <span className="Ditto-text">Ditto</span> and any of the Pokémon below.
+                    </h6>
+                </>
+            );
+        }
+        
+        
     }
 }
 

@@ -38,8 +38,9 @@ const PokemonList = function({ filteredPokemonObjectArray, onSelectPokemon, auto
             <select name={'pokemon'} 
                 onChange={onSelectPokemon}
                 className={"d-lg-none"}
+                defaultValue={'Select-a-Pokémon'}
             >
-                <option className={"text-center"} disabled selected>Select a Pokémon</option>
+                <option className={"text-center"} value={'Select-a-Pokémon'} disabled >Select a Pokémon</option>
                 {
                     filteredPokemonObjectArray.map(pokemonObject => {
                         

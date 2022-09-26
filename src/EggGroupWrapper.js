@@ -2,18 +2,31 @@ import React, { Component } from "react";
 import FilterBox from "./FilterBox";
 import EggGroupHeader from "./EggGroupHeader";
 import EggGroups from "./EggGroups";
+import genderlessPokemon from "./genderlessPokemon";
 
 class EggGroupWrapper extends Component {
     constructor() {
         super()
         this.state = {
-            filterfield: ''
+            filterfield: '',
+            currentPokemonIsGenderless: false
+        }
+    }
+
+    componentDidUpdate() {
+        // determine whether or not the current pokemon is genderless
+        const { currentPokemonIsGenderless } = this.state;
+        const { currentlySelectedPokemonName } = this.props;
+        if (genderlessPokemon.includes(currentlySelectedPokemonName) && !currentPokemonIsGenderless) {
+            this.setState({currentPokemonIsGenderless:true})
+        } else if (!genderlessPokemon.includes(currentlySelectedPokemonName) && currentPokemonIsGenderless) {
+            this.setState({currentPokemonIsGenderless:false})
         }
     }
 
     render() {
         const { eggGroups, currentlySelectedPokemonName, cleanPokemonName } = this.props;
-        const { filterfield } = this.state; 
+        const { filterfield, currentPokemonIsGenderless } = this.state; 
 
         // fix capitalization and punctuation in egg group names
         const cleanEggGroups = eggGroups.map(eggGroup => {
@@ -25,12 +38,13 @@ class EggGroupWrapper extends Component {
         if (currentlySelectedPokemonName) {
             return(
                 <div className='col-12 col-lg-7'>
-                    <div className="row align-items-center justify-content-center whole-page-min-height">
+                    <div className="row justify-content-center">
                         <div className="col-12">
                             <div className="tight wrapper-header-details">
                                 <EggGroupHeader 
                                     currentlySelectedPokemonName={currentlySelectedPokemonName}
-                                    eggGroups={cleanEggGroups} 
+                                    eggGroups={cleanEggGroups}
+                                    currentPokemonIsGenderless={currentPokemonIsGenderless} 
                                 />
                             </div>
                         </div>
@@ -40,7 +54,9 @@ class EggGroupWrapper extends Component {
                                 filterfield={filterfield} 
                                 eggGroups={cleanEggGroups} 
                                 cleanPokemonName={cleanPokemonName}
-                                currentlySelectedPokemonName={currentlySelectedPokemonName}/>
+                                currentlySelectedPokemonName={currentlySelectedPokemonName}
+                                currentPokemonIsGenderless={currentPokemonIsGenderless} 
+                            />
                         </div>   
                     </div>
                 </div>
