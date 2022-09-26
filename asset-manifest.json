@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/pokemon-breeding-compatibility-checker/static/css/main.9d97bbf4.css",
-    "main.js": "/pokemon-breeding-compatibility-checker/static/js/main.2482bf49.js",
+    "main.css": "/pokemon-breeding-compatibility-checker/static/css/main.f5a7c09d.css",
+    "main.js": "/pokemon-breeding-compatibility-checker/static/js/main.89793793.js",
     "static/js/787.54def763.chunk.js": "/pokemon-breeding-compatibility-checker/static/js/787.54def763.chunk.js",
     "static/media/egg.png": "/pokemon-breeding-compatibility-checker/static/media/egg.53aa77eb0ef65d413e5b.png",
     "static/media/togepi.png": "/pokemon-breeding-compatibility-checker/static/media/togepi.4ad430ae97977e597d32.png",
     "static/media/background.png": "/pokemon-breeding-compatibility-checker/static/media/background.bbec109a7b9df4d17a5b.png",
     "index.html": "/pokemon-breeding-compatibility-checker/index.html",
-    "main.9d97bbf4.css.map": "/pokemon-breeding-compatibility-checker/static/css/main.9d97bbf4.css.map",
-    "main.2482bf49.js.map": "/pokemon-breeding-compatibility-checker/static/js/main.2482bf49.js.map",
+    "main.f5a7c09d.css.map": "/pokemon-breeding-compatibility-checker/static/css/main.f5a7c09d.css.map",
+    "main.89793793.js.map": "/pokemon-breeding-compatibility-checker/static/js/main.89793793.js.map",
     "787.54def763.chunk.js.map": "/pokemon-breeding-compatibility-checker/static/js/787.54def763.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d97bbf4.css",
-    "static/js/main.2482bf49.js"
+    "static/css/main.f5a7c09d.css",
+    "static/js/main.89793793.js"
   ]
 }
