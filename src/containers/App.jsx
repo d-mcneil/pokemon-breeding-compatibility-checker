@@ -4,6 +4,7 @@ import { displaySizeIsLarge, populatePokemonSelector } from "../redux/actions";
 import { BOOTSTRAP_LARGE_BREAKPOINT_MEDIA_QUERY } from "../constantsNonRedux";
 import PokemonSelector from "../components/PokemonSelector/PokemonSelector";
 import SearchBox from "../components/SearchBox/SearchBox";
+import PokemonImage from "../components/PokemonImage/PokemonImage";
 
 const mapDispatchToProps = (dispatch) => ({
   setDisplaySize: (large) => dispatch(displaySizeIsLarge(large)),
@@ -49,8 +50,7 @@ const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
         <div className="col-12 col-lg-5">
           <PokemonSelector />
           <SearchBox />
-          {/* <SearchBox />
-            <Picture /> */}
+          <PokemonImage />
         </div>
         {/* <div className="col-12 col-lg-7">
              { // flex order needs to be one when on a medium screen or smaller

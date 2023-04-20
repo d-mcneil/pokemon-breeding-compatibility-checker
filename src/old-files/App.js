@@ -23,39 +23,4 @@ class App extends Component {
       </div>
     );
   }
-
-  // called in onSelectPokemon
-  setPokemonPictureUrl = (baseUrl) => {
-    const newUrl = baseUrl.replace("-species", "");
-    fetch(newUrl)
-      .then((response) => response.json())
-      .then((data) => data.sprites.other["official-artwork"].front_default)
-      .then((picUrl) =>
-        this.setState({ currentlySelectedPokemonPictureUrl: picUrl })
-      );
-  };
-
-  // called in onSelectPokemon
-  setEggGroupsAndPokemonName = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          currentlySelectedPokemonName: this.cleanPokemonName(data.name),
-        });
-        // ditto is a unique pokemon, so the data has to be slightly altered if ditto is selected
-        if (data.name === "ditto") {
-          this.setState({
-            eggGroups: [
-              {
-                name: "no-eggs",
-                url: "https://pokeapi.co/api/v2/egg-group/no-eggs",
-              },
-            ],
-          });
-        } else {
-          this.setState({ eggGroups: data.egg_groups });
-        }
-      });
-  };
 }
