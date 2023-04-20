@@ -22,7 +22,7 @@ export const cleanPokemonName = (name) => {
       return "Ho-Oh";
     case "nidoran-f":
       return "Nidoran-F";
-    case "nidoran-m'":
+    case "nidoran-m":
       return "Nidoran-M";
     case "flabebe":
       return "Flabébé";

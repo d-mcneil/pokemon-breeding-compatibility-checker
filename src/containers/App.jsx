@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { displaySizeIsLarge, populatePokemonSelector } from "../redux/actions";
 import { BOOTSTRAP_LARGE_BREAKPOINT_MEDIA_QUERY } from "../constantsNonRedux";
 import PokemonSelector from "../components/PokemonSelector/PokemonSelector";
+import SearchBox from "../components/SearchBox/SearchBox";
 
 const mapDispatchToProps = (dispatch) => ({
   setDisplaySize: (large) => dispatch(displaySizeIsLarge(large)),
@@ -47,6 +48,7 @@ const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
       <div className="row">
         <div className="col-12 col-lg-5">
           <PokemonSelector />
+          <SearchBox />
           {/* <SearchBox />
             <Picture /> */}
         </div>

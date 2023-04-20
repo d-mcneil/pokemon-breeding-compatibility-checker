@@ -18,6 +18,10 @@ export const selectPokemon = (pokemon = {}) => ({
     name: pokemon.name,
     dexNumber: pokemon.dexNumber,
     url: pokemon.url,
-    eggGroups: [],
   },
+});
+
+export const updateSearchfield = (searchString) => ({
+  type: reduxConstants.UPDATE_SEARCHFIELD,
+  payload: searchString,
 });

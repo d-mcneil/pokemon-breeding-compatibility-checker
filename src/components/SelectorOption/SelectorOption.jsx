@@ -5,21 +5,35 @@ import { selectPokemon } from "../../redux/actions";
 
 const mapStateToProps = (state) => ({
   largeDisplaySize: state.displaySize.large,
+  currentPokemonName: state.currentPokemon.name,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onSelectPokemon: (pokemon) => dispatch(selectPokemon(pokemon)),
 });
 
-const SelectorOption = ({ pokemon, largeDisplaySize, onSelectPokemon }) => {
+const SelectorOption = ({
+  pokemon,
+  largeDisplaySize,
+  currentPokemonName,
+  onSelectPokemon,
+}) => {
+  const handleOnClick = largeDisplaySize
+    ? () => {
+        if (pokemon.name !== currentPokemonName) {
+          onSelectPokemon(pokemon);
+        }
+      }
+    : undefined;
+
   // prettier-ignore
   return (
     <option 
-    value={largeDisplaySize ? undefined : pokemon.url}
-    data-name={largeDisplaySize ? undefined : pokemon.name}
-    data-dex-number={largeDisplaySize ? undefined : pokemon.dexNumber}
-    onClick={() => largeDisplaySize ? onSelectPokemon(pokemon) : undefined}>
-        {`${stringDexNumber(pokemon.dexNumber)}   ${cleanPokemonName(pokemon.name)}`}
+    value={pokemon.url}
+    data-name={pokemon.name}
+    data-dex-number={pokemon.dexNumber}
+    onClick={() => largeDisplaySize ? handleOnClick() : undefined}>
+        {stringDexNumber(pokemon.dexNumber)} &nbsp; {cleanPokemonName(pokemon.name)}
     </option>
   );
 };
