@@ -5,36 +5,11 @@ body {
   background-size: cover;
 }
 
-/* this was used for the select-a-pokemon text block that was replaced by the picture of the egg */
-/* #select-a-pokemon {
-  border-radius: 3px;
-  margin-bottom: 50px;
-  width: fit-content;
-  display: inline-block;
-  padding: 10px;
-} */
-
 .whole-page-min-height {
   min-height: 100vh;
 }
 
-img{
-  max-width: 90%;
-  max-height: 40vh;
-}
-
-#egg{
-  max-height: 35vh;
-  margin-top: 12px;
-  margin-bottom: 20px;
-}
-
-#eggs-image {
-  max-width: 90vw !important;
-}
-
-
-.list{
+.list {
   max-height: 50vh;
   overflow-y: scroll;
   margin: 0;
@@ -44,27 +19,22 @@ img{
   padding-top: 0 !important;
 }
 
-li{
+li {
   list-style: none;
   text-align: start;
   padding-left: 2px;
   padding-bottom: 1px;
 }
 
-option, li{
+option,
+li {
   padding-right: 10px;
   font-size: 1.1rem;
 }
 
-option{
-  cursor: pointer;
-}
-
-select {
-  margin-top: 20px;
-}
-
-select, input, .list{
+select,
+input,
+.list {
   padding: 1px 2px;
   min-width: 12rem;
 }
@@ -76,38 +46,20 @@ input,
   border-radius: 3px;
 }
 
-/* this was used when the select element and the search box were tight together */
-/* #search {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-} */
-
-#search {
-  margin-top: 12px;
-  margin-bottom: 20px;
-}
-
-select, 
-input, 
-#details, 
+select,
+input,
+#details,
 #heading,
 #select-a-pokemon,
 .page-title,
 .directions {
-  background-color: rgba(240, 240, 240, .5);
+  background-color: rgba(240, 240, 240, 0.5);
   border-width: 1px;
   border-style: inset;
   border-color: rgb(118, 118, 118);
-} 
+}
 
-/* this was used when the select element and the search box were tight together */
-/* select{
-  margin-bottom: -2px !important;
-  border-bottom-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-} */
-
-.tight{
+.tight {
   height: fit-content;
   width: fit-content;
   padding: 0;
@@ -126,12 +78,6 @@ input,
   margin-bottom: 12px;
 }
 
-/* this was used when the select element and the search box were tight together */
-/* .wrapper-list-search {
-  margin-top: 20px;
-  margin-bottom: 20px;
-} */
-
 .page-title {
   font-size: 2.5rem;
   margin-top: 20px;
@@ -143,7 +89,7 @@ input,
   display: inline-block;
 }
 
-.egg-group-title{
+.egg-group-title {
   display: inline-block;
   min-width: 12rem;
   margin-bottom: 0px;
@@ -164,7 +110,7 @@ input,
   padding-top: 10px;
 }
 
-#details{
+#details {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border-top: none !important;
@@ -184,91 +130,85 @@ select,
 }
 
 /* https://bulbapedia.bulbagarden.net/wiki/Egg_Group */
-.Monster{
-  background: rgba(210, 80, 100, .5);
+.Monster {
+  background: rgba(210, 80, 100, 0.5);
   border: 1px solid #933846;
 }
 
 /* humanshape */
-.Human-Like{
-  background: rgba(210, 150, 130, .5);
-  border: 1px solid #93695B;
+.Human-Like {
+  background: rgba(210, 150, 130, 0.5);
+  border: 1px solid #93695b;
 }
 
-.Water1{
-  background: rgba(151, 181, 253, .5);
-  border: 1px solid #697FB1;
+.Water1 {
+  background: rgba(151, 181, 253, 0.5);
+  border: 1px solid #697fb1;
 }
 
-.Water2{
-  background: rgba(114, 154, 250, .5);
-  border: 1px solid #506CAF;
+.Water2 {
+  background: rgba(114, 154, 250, 0.5);
+  border: 1px solid #506caf;
 }
 
-.Water3{
-  background: rgba(88, 118, 190, .5);
-  border: 1px solid #3D5285;
+.Water3 {
+  background: rgba(88, 118, 190, 0.5);
+  border: 1px solid #3d5285;
 }
 
-.Bug{
-  background: rgba(170, 194, 42, .5);
-  border: 1px solid #77881D;
+.Bug {
+  background: rgba(170, 194, 42, 0.5);
+  border: 1px solid #77881d;
 }
 
-.Mineral{
-  background: rgba(122, 98, 82, .5);
+.Mineral {
+  background: rgba(122, 98, 82, 0.5);
   border: 1px solid #554439;
 }
 
-.Flying{
-  background: rgba(178, 154, 250, .5);
-  border: 1px solid #7C6CAF;
+.Flying {
+  background: rgba(178, 154, 250, 0.5);
+  border: 1px solid #7c6caf;
 }
 
-.Amorphous{
-  background: rgba(138, 138, 138, .5);
+.Amorphous {
+  background: rgba(138, 138, 138, 0.5);
   border: 1px solid #606060;
 }
 
 /* ground */
-.Field{
-  background: rgba(224, 192, 104, .5);
-  border: 1px solid #9D8649;
+.Field {
+  background: rgba(224, 192, 104, 0.5);
+  border: 1px solid #9d8649;
 }
 
-.Fairy{
-  background: rgba(255, 200, 240, .5);
-  border: 1px solid #B38CA8;
+.Fairy {
+  background: rgba(255, 200, 240, 0.5);
+  border: 1px solid #b38ca8;
 }
 
-.Ditto{
-  background: rgba(166, 100, 191, .5);
+.Ditto {
+  background: rgba(166, 100, 191, 0.5);
   border: 1px solid #744686;
 }
 
-.Ditto-text{
+.Ditto-text {
   color: rgb(166, 100, 191);
 }
 
 /* plant */
-.Grass{
-  background: rgba(130, 210, 90, .5);
-  border: 1px solid #5B933F;
+.Grass {
+  background: rgba(130, 210, 90, 0.5);
+  border: 1px solid #5b933f;
 }
 
-.Dragon{
-  background: rgba(122, 66, 255, .5);
-  border: 1px solid #552EB3;
+.Dragon {
+  background: rgba(122, 66, 255, 0.5);
+  border: 1px solid #552eb3;
 }
 
-.No-Eggs{
-  background: rgba(51, 51, 51, .5);
+.No-Eggs {
+  background: rgba(51, 51, 51, 0.5);
   border: 1px solid #232323;
   /* color: #f0f0f0; */
 }
-
-/* .push{
-  margin-left: auto;
-}  
-these lines I used to push the name to the right of the li and keep the dex number at the left
-however, I wasn´t able to do the same with the select box, so I removed the feature */

@@ -8,7 +8,7 @@ import configureStore from "./redux/store";
 import App from "./containers/App";
 
 import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
-import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css";
+import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css"; // vh-100
 
 import "./index.scss";
 
