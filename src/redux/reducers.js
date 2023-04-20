@@ -13,7 +13,7 @@ const initialStateCurrentPokemon = {
   name: "",
   dexNumber: 0,
   url: "",
-  eggGroups: [],
+  eggGroups: [{ name: "", url: "" }],
 };
 
 const initialStateSearchfield = {
@@ -42,9 +42,11 @@ const displaySize = (state = initialStateDisplaySize, action = {}) => {
 
 const currentPokemon = (state = initialStateCurrentPokemon, action = {}) => {
   switch (action.type) {
-    case constants.SELECT_POKEMON:
-      const { name, dexNumber, url, eggGroups } = action.payload;
-      return { ...state, name, dexNumber, url, eggGroups };
+    case constants.SET_POKEMON:
+      const { name, dexNumber, url } = action.payload;
+      return { ...state, name, dexNumber, url };
+    case constants.SET_EGG_GROUPS:
+      return { ...state, eggGroups: action.payload };
     default:
       return state;
   }

@@ -48,3 +48,9 @@ export const stringDexNumber = (number) => {
       return string;
   }
 };
+
+export const fetchPictureUrl = (url = "") => {
+  return fetch(url.replace("-species", ""))
+    .then((response) => response.json())
+    .then((data) => data.sprites.other["official-artwork"].front_default);
+};
