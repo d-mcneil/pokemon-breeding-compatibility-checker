@@ -1,3 +1,15 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  --spacing-3: 0.5rem;
+  --spacing-4: 1rem;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,3 +24,42 @@ body {
   box-sizing: border-box;
   line-height: 1.5em;
 }
+
+// ********************************** left half (PokemonSelector, SearchBox, and PokemonImage) **********************************
+
+select,
+option,
+input {
+  font-size: 1rem;
+}
+
+@media (min-width: 992px) {
+  select,
+  option,
+  input {
+    font-size: 1.5rem;
+  }
+}
+
+select {
+  margin-top: var(--spacing-4);
+}
+
+select,
+#search {
+  width: 12em;
+  display: block;
+  align-self: center;
+  margin-bottom: var(--spacing-3);
+}
+
+#search,
+#pokemon-image-wrapper {
+  margin-top: var(--spacing-3);
+}
+
+#pokemon-image-wrapper {
+  margin-bottom: var(--spacing-4);
+}
+
+// ********************************** left half **********************************

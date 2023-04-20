@@ -45,9 +45,9 @@ const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-12 col-lg-5">
+        <div className="col-12 col-lg-5 d-flex flex-column justify-content-center vh-100">
           <PokemonSelector />
           <SearchBox />
           <PokemonImage />

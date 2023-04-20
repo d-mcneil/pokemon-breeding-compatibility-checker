@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateSearchfield } from "../../redux/actions";
+import "./SearchBox.scss";
 
 const mapDispatchToProps = (dispatch) => ({
   onUpdateSearchfield: (searchString) =>
@@ -11,6 +12,7 @@ const SearchBox = ({ onUpdateSearchfield }) => {
   return (
     <input
       type="search"
+      id="search"
       placeholder="Search Pokémon"
       onChange={(event) => onUpdateSearchfield(event.target.value)}
     ></input>

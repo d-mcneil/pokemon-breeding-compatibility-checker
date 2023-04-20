@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { cleanPokemonName, fetchPictureUrl } from "../../functions";
 import egg from "../../assets/egg.png";
+import "./PokemonImage.scss";
 
 const mapStateToProps = (state) => ({
   url: state.currentPokemon.url,
@@ -20,7 +21,11 @@ const PokemonImage = ({ url, name }) => {
   const imageSource = imageUrl ? imageUrl : egg;
   const altText = imageUrl ? cleanPokemonName(name) : "Pokémon Egg";
 
-  return <img src={imageSource} alt={altText}></img>;
+  return (
+    <div id="pokemon-image-wrapper">
+      <img src={imageSource} alt={altText} id="pokemon-image"></img>
+    </div>
+  );
 };
 
 export default connect(mapStateToProps)(PokemonImage);
