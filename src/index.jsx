@@ -7,6 +7,7 @@ import configureStore from "./redux/store";
 
 import App from "./containers/App";
 
+// import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
 import "./index.scss";
 
 const store = configureStore();
