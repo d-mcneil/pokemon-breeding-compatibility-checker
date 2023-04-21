@@ -5,6 +5,13 @@ import { BOOTSTRAP_LARGE_BREAKPOINT_MEDIA_QUERY } from "../constantsNonRedux";
 import PokemonSelector from "../components/PokemonSelector/PokemonSelector";
 import SearchBox from "../components/SearchBox/SearchBox";
 import PokemonImage from "../components/PokemonImage/PokemonImage";
+import Title from "../components/Title/Title";
+import Instructions from "../components/Instructions/Instructions";
+import CoverImage from "../components/CoverImage/CoverImage";
+
+const mapStateToProps = (state) => ({
+  currentPokemonName: state.currentPokemon.name,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   setDisplaySize: (large) => dispatch(displaySizeIsLarge(large)),
@@ -12,7 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(populatePokemonSelector(pokemonObjectArray)),
 });
 
-const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
+const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
   // set up an event listener to track the size of the viewport
   useEffect(() => {
     const mediaQuery = window.matchMedia(
@@ -44,23 +51,33 @@ const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
       .then(loadPokemonList);
   }, []);
 
+  const renderCoverSectionWhenNoPokemonSelected = currentPokemonName ? null : (
+    <div
+      className="col-12 col-lg-7 d-flex flex-column justify-content-center vh-100"
+      id="cover-wrapper"
+    >
+      <Title />
+      <CoverImage />
+      <Instructions />
+    </div>
+  );
+
+  const renderPokemonSelectorSection = (
+    <div className="col-12 col-lg-5 d-flex flex-column justify-content-center vh-100">
+      <PokemonSelector />
+      <SearchBox />
+      <PokemonImage />
+    </div>
+  );
+
+  // const renderEggGroupResults =
+
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-12 col-lg-5 d-flex flex-column justify-content-center vh-100">
-          <PokemonSelector />
-          <SearchBox />
-          <PokemonImage />
-        </div>
-        {/* <div className="col-12 col-lg-7">
-             { // flex order needs to be one when on a medium screen or smaller
-            }
-            <Title />
-            <CoverPicture />
-            <Instructions /> {
-              // instructions are different for small screen and big screen
-            } 
-          </div> */}
+        {renderCoverSectionWhenNoPokemonSelected}
+        {renderPokemonSelectorSection}
+        {/* {renderEggGroupResults} */}
         {/* <div className="col-12 col-lg-7">
             <ResultsHeader />
               <ResultsMainText />
@@ -76,4 +93,4 @@ const App = ({ largeDisplaySize, setDisplaySize, loadPokemonList }) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

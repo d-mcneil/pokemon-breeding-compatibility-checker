@@ -25,7 +25,22 @@ body {
   line-height: 1.5em;
 }
 
-// ********************************** left half (PokemonSelector, SearchBox, and PokemonImage) **********************************
+// ********************************** cover section **********************************
+
+@media (min-width: 992px) {
+  #cover-wrapper {
+    order: 2;
+  }
+}
+
+h1,
+p {
+  display: block;
+  align-self: center;
+  text-align: center;
+}
+
+// ********************************** left/top half (PokemonSelector, SearchBox, and PokemonImage) **********************************
 
 select,
 option,
@@ -62,4 +77,4 @@ select,
   margin-bottom: var(--spacing-4);
 }
 
-// ********************************** left half **********************************
+// ********************************** right/bottom half (, , and ) **********************************
