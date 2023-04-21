@@ -18,11 +18,32 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eee;
+  // https://cdn.wallpapersafari.com/85/89/6lOBvr.png
+  // background: url(./assets/background.png) no-repeat center center fixed;
+  // background-size: cover;
 }
 
 * {
   box-sizing: border-box;
   line-height: 1.5em;
+}
+
+select,
+option,
+input {
+  font-size: 1rem;
+}
+
+@media (min-width: 992px) {
+  select,
+  option,
+  input {
+    font-size: 1.5rem;
+  }
+}
+
+input {
+  padding-left: 0.5em;
 }
 
 // ********************************** cover section **********************************
@@ -41,20 +62,6 @@ p {
 }
 
 // ********************************** left/top half (PokemonSelector, SearchBox, and PokemonImage) **********************************
-
-select,
-option,
-input {
-  font-size: 1rem;
-}
-
-@media (min-width: 992px) {
-  select,
-  option,
-  input {
-    font-size: 1.5rem;
-  }
-}
 
 select {
   margin-top: var(--spacing-4);
@@ -78,3 +85,8 @@ select,
 }
 
 // ********************************** right/bottom half (, , and ) **********************************
+@media (min-width: 992px) {
+  #egg-groups-results-wrapper {
+    height: 100vh;
+  }
+}

@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { displaySizeIsLarge, populatePokemonSelector } from "../redux/actions";
+import {
+  displaySizeIsLarge,
+  populatePokemonSelector,
+  updateFilterfield,
+  updateSearchfield,
+} from "../redux/actions";
 import { BOOTSTRAP_LARGE_BREAKPOINT_MEDIA_QUERY } from "../constantsNonRedux";
 import PokemonSelector from "../components/PokemonSelector/PokemonSelector";
 import SearchBox from "../components/SearchBox/SearchBox";
@@ -65,19 +70,26 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
   const renderPokemonSelectorSection = (
     <div className="col-12 col-lg-5 d-flex flex-column justify-content-center vh-100">
       <PokemonSelector />
-      <SearchBox />
+      <SearchBox action={updateSearchfield} />
       <PokemonImage />
     </div>
   );
 
-  // const renderEggGroupResults =
+  const renderEggGroupResults = (
+    <div
+      className="col-12 col-lg-7 d-flex flex-column justify-content-center"
+      id="egg-group-results-wrapper"
+    >
+      <SearchBox action={updateFilterfield} placeholder="Filter" />
+    </div>
+  );
 
   return (
     <div className="container-fluid">
       <div className="row">
         {renderCoverSectionWhenNoPokemonSelected}
         {renderPokemonSelectorSection}
-        {/* {renderEggGroupResults} */}
+        {renderEggGroupResults}
         {/* <div className="col-12 col-lg-7">
             <ResultsHeader />
               <ResultsMainText />

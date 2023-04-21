@@ -35,6 +35,23 @@ export const cleanPokemonName = (name) => {
   }
 };
 
+export const cleanEggGroupName = (name) => {
+  switch (name) {
+    case "no-eggs":
+      return "No-Eggs";
+    case "ground":
+      return "Field";
+    case "humanshape":
+      return "Human-Like";
+    case "plant":
+      return "Grass";
+    case "indeterminate":
+      return "Amorphous";
+    default:
+      return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+};
+
 export const stringDexNumber = (number) => {
   const string = number.toString();
   switch (string.length) {

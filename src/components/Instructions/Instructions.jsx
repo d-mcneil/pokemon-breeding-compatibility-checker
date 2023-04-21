@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
 });
 
 const Instructions = ({ largeDisplaySize }) => {
-  // if the display size is not large, let the user scroll to the pokemon selector when the corresponding anchor tag in the instructions is clicked
+  // if the display size is smaller than large, let the user scroll to the pokemon selector when the corresponding anchor tag in the instructions is clicked
   useEffect(() => {
     if (!largeDisplaySize) {
       const scrollAnchorTag = document.getElementById("scroll-to-bottom");

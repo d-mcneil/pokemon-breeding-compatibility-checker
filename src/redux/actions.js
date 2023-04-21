@@ -1,4 +1,5 @@
 import { batch } from "react-redux";
+import { GENDERLESS_POKEMON } from "../constantsNonRedux";
 import { fetchPictureUrl } from "../functions";
 import * as reduxConstants from "./constants";
 
@@ -19,6 +20,7 @@ const setPokemon = (pokemon = {}) => ({
     name: pokemon.name,
     dexNumber: pokemon.dexNumber,
     url: pokemon.url,
+    genderless: GENDERLESS_POKEMON.includes(pokemon.name) ? true : false,
   },
 });
 
@@ -51,4 +53,9 @@ export const selectPokemon =
 export const updateSearchfield = (searchString) => ({
   type: reduxConstants.UPDATE_SEARCHFIELD,
   payload: searchString,
+});
+
+export const updateFilterfield = (filterString) => ({
+  type: reduxConstants.UPDATE_FILTERFIELD,
+  payload: filterString,
 });

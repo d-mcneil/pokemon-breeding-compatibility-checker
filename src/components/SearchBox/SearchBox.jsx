@@ -1,20 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateSearchfield } from "../../redux/actions";
-import "./SearchBox.scss";
 
 const mapDispatchToProps = (dispatch) => ({
-  onUpdateSearchfield: (searchString) =>
-    dispatch(updateSearchfield(searchString)),
+  onUpdateField: (action, string) => dispatch(action(string)),
 });
 
-const SearchBox = ({ onUpdateSearchfield }) => {
+const SearchBox = ({
+  action, // updateSearchfield or updateFilterfield
+  placeholder = "Search",
+  onUpdateField,
+}) => {
   return (
     <input
       type="search"
-      id="search"
-      placeholder="Search Pokémon"
-      onChange={(event) => onUpdateSearchfield(event.target.value)}
+      id={placeholder.toLowerCase()}
+      placeholder={`${placeholder} Pokémon`}
+      onChange={(event) => onUpdateField(action, event.target.value)}
     ></input>
   );
 };
