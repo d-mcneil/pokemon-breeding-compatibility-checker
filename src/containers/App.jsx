@@ -13,6 +13,7 @@ import PokemonImage from "../components/PokemonImage/PokemonImage";
 import Title from "../components/Title/Title";
 import Instructions from "../components/Instructions/Instructions";
 import CoverImage from "../components/CoverImage/CoverImage";
+import ResultsHeader from "../components/ResultsHeader/ResultsHeader";
 
 const mapStateToProps = (state) => ({
   currentPokemonName: state.currentPokemon.name,
@@ -75,12 +76,17 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
     </div>
   );
 
-  const renderEggGroupResults = (
+  const renderEggGroupResults = !currentPokemonName ? null : (
     <div
       className="col-12 col-lg-7 d-flex flex-column justify-content-center"
       id="egg-group-results-wrapper"
     >
+      <ResultsHeader />
       <SearchBox action={updateFilterfield} placeholder="Filter" />
+      {/* <ResultsEggGroups />
+          <EggGroup />
+            <EggGroupHeader />
+            <EggGroupList /> */}
     </div>
   );
 
@@ -90,16 +96,6 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
         {renderCoverSectionWhenNoPokemonSelected}
         {renderPokemonSelectorSection}
         {renderEggGroupResults}
-        {/* <div className="col-12 col-lg-7">
-            <ResultsHeader />
-              <ResultsMainText />
-              <ResultsSubText />
-            <FilterBox />
-            <ResultsEggGroups />
-              <EggGroup />
-                <EggGroupHeader />
-                <EggGroupList />
-          </div> */}
       </div>
     </div>
   );
