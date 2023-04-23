@@ -14,6 +14,7 @@ import Title from "../components/Title/Title";
 import Instructions from "../components/Instructions/Instructions";
 import CoverImage from "../components/CoverImage/CoverImage";
 import ResultsHeader from "../components/ResultsHeader/ResultsHeader";
+import ResultsEggGroups from "./ResultsEggGroups";
 
 const mapStateToProps = (state) => ({
   currentPokemonName: state.currentPokemon.name,
@@ -83,8 +84,8 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
     >
       <ResultsHeader />
       <SearchBox action={updateFilterfield} placeholder="Filter" />
-      {/* <ResultsEggGroups />
-          <EggGroup />
+      <ResultsEggGroups />
+      {/* <EggGroup />
             <EggGroupHeader />
             <EggGroupList /> */}
     </div>

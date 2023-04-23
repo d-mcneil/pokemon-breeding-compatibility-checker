@@ -37,3 +37,7 @@ export const GENDERLESS_POKEMON = [
   "polteageist",
   "falinks",
 ];
+
+export const DITTO = { name: "ditto", dexNumber: 132 };
+
+export const NO_EGGS = "no-eggs";
