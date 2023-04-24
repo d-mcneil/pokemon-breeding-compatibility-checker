@@ -22,10 +22,14 @@ const Instructions = ({ largeDisplaySize }) => {
   }, [largeDisplaySize]);
 
   if (largeDisplaySize) {
-    return <p>Select a Pokémon to see what other Pokémon it can breed with!</p>;
+    return (
+      <p id="instructions">
+        Select a Pokémon to see what other Pokémon it can breed with!
+      </p>
+    );
   } else {
     return (
-      <p>
+      <p id="instructions">
         Scroll down or{" "}
         <a href="#bottom" id="scroll-to-bottom">
           click here

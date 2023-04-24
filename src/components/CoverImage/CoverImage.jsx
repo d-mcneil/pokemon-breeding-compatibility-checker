@@ -1,6 +1,5 @@
 import React from "react";
 import togepi from "../../assets/togepi.png";
-import "./CoverImage.scss";
 
 const CoverImage = () => {
   return (

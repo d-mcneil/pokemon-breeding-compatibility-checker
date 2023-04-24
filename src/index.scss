@@ -6,12 +6,13 @@ body {
 
 html {
   font-size: 16px;
+  --spacing-2: 0.25rem;
   --spacing-3: 0.5rem;
   --spacing-4: 1rem;
   --spacing-5: 1.5rem;
   --spacing-6: 2rem;
   --spacing-7: 2.5rem;
-  --border-radius: 3px;
+  --border-radius: 10px;
   --background-opacity: 0.5;
   --border-width: 1px;
   --border-type: solid;
@@ -48,6 +49,12 @@ html {
   --no-eggs-color: 51, 51, 51;
 }
 
+@media (min-width: 992px) {
+  html {
+    overflow-y: hidden;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -55,10 +62,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eee;
   // https://cdn.wallpapersafari.com/85/89/6lOBvr.png
-  // background: url(./assets/background.png) no-repeat center center fixed;
-  // background-size: cover;
+  background: url(./assets/background.png) no-repeat center center fixed;
+  background-size: cover;
 }
 
 * {
@@ -66,107 +72,18 @@ body {
   line-height: 1.5em;
 }
 
-@media (min-width: 992px) {
-  html {
-    overflow-y: hidden;
-  }
-
-  #egg-groups-results-wrapper,
-  #pokemon-selector-wrapper {
-    height: 100vh;
-  }
-}
-
-select,
-option,
-input,
-li,
-p {
-  font-size: var(--spacing-4);
-}
-
-h1 {
-  font-size: var(--spacing-6);
-}
-
-h2 {
-  font-size: var(--spacing-5);
-}
-
-@media (min-width: 992px) {
-  select,
-  option,
-  input,
-  li,
-  p {
-    font-size: var(--spacing-5);
-  }
-  h1 {
-    font-size: var(--spacing-7);
-  }
-  h2 {
-    font-size: var(--spacing-6);
-  }
-}
-
-input {
-  padding-left: 0.5em;
-}
-
+// ********************************** spacing **********************************
 p,
 h1,
 h2,
-h3 {
-  display: block;
-  align-self: center;
-  text-align: center;
-}
-
-p,
-h1,
-h2,
-h3,
 ul,
 li {
   margin: 0;
   padding: 0;
 }
 
-select,
-input {
-  width: 12em;
-  display: block;
-  align-self: center;
-}
-
-#title,
-p,
-#results-header-wrapper {
-  background-color: rgba(240, 240, 240, var(--background-opacity));
-  background-color: pink; // will remove once done developing
-  border-width: 1px;
-  // border-style: inset;
-  border-color: rgb(118, 118, 118);
-}
-
-#cover-image-wrapper,
-#pokemon-image-wrapper {
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-}
-
-#pokemon-image,
-#cover-image {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-input {
+input,
+#cover-image-wrapper {
   margin-top: var(--spacing-4);
   margin-bottom: var(--spacing-4);
 }
@@ -182,7 +99,186 @@ input {
   }
 }
 
-// ********************************** cover section only **********************************
+.egg-group-super-wrapper {
+  margin-bottom: var(--spacing-4);
+}
+
+#results-header-wrapper,
+#title,
+#instructions {
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+input,
+li {
+  padding-left: var(--spacing-4);
+}
+
+@media (min-width: 992px) {
+  select {
+    padding-left: var(--spacing-4);
+  }
+}
+
+select {
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+}
+
+option {
+  padding-bottom: var(--spacing-2);
+}
+
+h2 {
+  padding-bottom: var(--spacing-3);
+}
+
+.egg-group-wrapper {
+  h1 {
+    padding-top: var(--spacing-3);
+    padding-bottom: var(--spacing-3);
+  }
+}
+
+// ********************************** font size **********************************
+select,
+option,
+input,
+li,
+p {
+  font-size: var(--spacing-4);
+}
+
+h2 {
+  font-size: var(--spacing-5);
+}
+
+h1 {
+  font-size: var(--spacing-6);
+}
+
+@media (min-width: 992px) {
+  select,
+  option,
+  input,
+  li,
+  p {
+    font-size: var(--spacing-5);
+  }
+
+  h2 {
+    font-size: var(--spacing-6);
+  }
+
+  h1 {
+    font-size: var(--spacing-7);
+  }
+}
+
+// ********************************** images **********************************
+#cover-image-wrapper,
+#pokemon-image-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#cover-image-wrapper {
+  width: 80%;
+}
+
+#pokemon-image-wrapper {
+  max-height: 475px;
+  max-width: 475px;
+  height: 50%;
+  width: 80%;
+}
+
+#pokemon-image,
+#cover-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+// ********************************** element widths **********************************
+
+select,
+input,
+.egg-group-super-wrapper {
+  width: 12em;
+}
+
+@media (min-width: 992px) {
+  .egg-group-super-wrapper {
+    width: 16em;
+  }
+}
+
+#title,
+#instructions,
+#results-header-wrapper {
+  max-width: 80%;
+}
+
+// ********************************** element heights **********************************
+@media (min-width: 992px) {
+  #egg-groups-results-wrapper,
+  #pokemon-selector-wrapper {
+    height: 100vh;
+  }
+}
+
+// ***** screens less than 600 px tall *****
+.egg-group-super-wrapper {
+  max-height: 40vh;
+}
+.egg-group-wrapper {
+  max-height: 40vh;
+}
+@media (min-width: 576px) {
+  .egg-group-super-wrapper {
+    height: 40vh;
+  }
+}
+
+// ***** screens more than 600 px tall *****
+@media (min-height: 600px) {
+  .egg-group-super-wrapper {
+    max-height: 60vh;
+  }
+  .egg-group-wrapper {
+    max-height: 60vh;
+  }
+  @media (min-width: 576px) {
+    .egg-group-super-wrapper {
+      height: 60vh;
+    }
+  }
+}
+
+// ********************************** alignment **********************************
+p,
+h1,
+h2,
+select,
+input,
+#results-header-wrapper {
+  display: block;
+  align-self: center;
+}
+
+p,
+h1,
+h2 {
+  text-align: center;
+}
 
 @media (min-width: 992px) {
   #cover-wrapper {
@@ -190,39 +286,42 @@ input {
   }
 }
 
-// ********************************** right/bottom half only (ResultsHeader, FilterBox, and EggGroups) **********************************
-
-li {
-  list-style: none;
-}
-
 .egg-group-super-wrapper {
-  width: 12em;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: var(--spacing-4);
-  max-height: 60vh;
-}
-
-@media (min-width: 992px) {
-  .egg-group-super-wrapper {
-    width: 15em;
-  }
 }
 
 .egg-group-wrapper {
-  background-color: blue;
   display: flex;
   flex-direction: column;
-  max-height: 60vh;
-}
-
-@media (min-width: 576px) {
-  .egg-group-super-wrapper {
-    height: 60vh;
-  }
 }
 
 ul {
   overflow-y: auto;
+}
+// ********************************** styles **********************************
+
+select,
+input,
+#results-header-wrapper,
+.egg-group-wrapper,
+#title,
+#instructions {
+  box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 15px;
+  border-radius: var(--border-radius);
+}
+
+#title,
+#instructions,
+#results-header-wrapper,
+input,
+select {
+  background-color: rgba(240, 240, 240, var(--background-opacity));
+  border-width: var(--border-width);
+  border-style: inset;
+  border-color: rgb(118, 118, 118);
+}
+
+li {
+  list-style: none;
 }

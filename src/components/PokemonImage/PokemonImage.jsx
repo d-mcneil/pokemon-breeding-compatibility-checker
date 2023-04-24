@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { cleanPokemonName, fetchPictureUrl } from "../../functions";
 import egg from "../../assets/egg.png";
-import "./PokemonImage.scss";
 
 const mapStateToProps = (state) => ({
   url: state.currentPokemon.url,
