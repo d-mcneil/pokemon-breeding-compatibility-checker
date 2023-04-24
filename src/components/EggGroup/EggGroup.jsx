@@ -5,13 +5,14 @@ import EggGroupList from "../EggGroupList/EggGroupList";
 
 const EggGroup = ({ eggGroup }) => {
   return (
-    <>
-      <EggGroupHeader
-        text={eggGroup.name === DITTO.name ? NO_EGGS : eggGroup.name}
-      />
-      <EggGroupList eggGroup={eggGroup} />
-      <></>
-    </>
+    <div className="egg-group-super-wrapper">
+      <div className="egg-group-wrapper">
+        <EggGroupHeader
+          text={eggGroup.name === DITTO.name ? NO_EGGS.name : eggGroup.name}
+        />
+        <EggGroupList eggGroup={eggGroup} />
+      </div>
+    </div>
   );
 };
 

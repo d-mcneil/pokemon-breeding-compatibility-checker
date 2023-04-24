@@ -1,5 +1,5 @@
 import { batch } from "react-redux";
-import { GENDERLESS_POKEMON } from "../constantsNonRedux";
+import { DITTO, GENDERLESS_POKEMON, NO_EGGS } from "../constantsNonRedux";
 import { fetchPictureUrl } from "../functions";
 import * as reduxConstants from "./constants";
 
@@ -33,13 +33,13 @@ export const selectPokemon =
   (pokemon = {}) =>
   (dispatch) => {
     dispatch(setPokemon(pokemon));
-    if (pokemon.name === "ditto") {
+    if (pokemon.name === DITTO.name) {
       // ditto is a unique pokemon, so the data has to be slightly altered if ditto is selected
       dispatch(
         setEggGroups([
           {
-            name: "ditto",
-            url: "https://pokeapi.co/api/v2/egg-group/no-eggs",
+            name: DITTO.name,
+            url: NO_EGGS.url,
           },
         ])
       );

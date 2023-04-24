@@ -37,7 +37,7 @@ const EggGroupList = ({
               .filter((pokemon) => !pokemon.genderless) // if a result pokemon is genderless, it should not be included in the results list, as it would only be able to breed with ditto
         )
         .then((pokemonArray) => {
-          if (eggGroup.name === NO_EGGS || eggGroup.name === DITTO.name) {
+          if (eggGroup.name === NO_EGGS.name || eggGroup.name === DITTO.name) {
             setPokemonList(pokemonArray);
           } else {
             setPokemonList([DITTO, ...pokemonArray]);

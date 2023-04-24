@@ -1,42 +1,42 @@
 import React from "react";
 import { connect } from "react-redux";
+import { DITTO, NO_EGGS } from "../../constantsNonRedux";
 import { cleanPokemonName } from "../../functions";
 
 const mapStateToProps = (state) => ({
   name: state.currentPokemon.name,
   currentPokemonIsGenderless: state.currentPokemon.genderless,
-  noEggsGroup: state.currentPokemon.eggGroups[0].name === "no-eggs",
+  noEggsGroup: state.currentPokemon.eggGroups[0].name === NO_EGGS.name,
 });
 
 const ResultsSubText = ({ name, currentPokemonIsGenderless, noEggsGroup }) => {
   const cleanName = cleanPokemonName(name);
+  const dittoSpanElement = <span>Ditto</span>;
   switch (true) {
-    case name === "ditto":
+    case name === DITTO.name:
       return (
-        <h3>
-          That isn't a typo; <span>Ditto</span> is literally in the{" "}
-          <span>Ditto</span> egg group. It can breed with all Pokémon... except
-          for other <span>Ditto</span> and those Pokémon in the list below,
+        <p>
+          That isn't a typo; {dittoSpanElement} is literally in the{" "}
+          {dittoSpanElement} egg group. It can breed with all Pokémon... except
+          for other {dittoSpanElement} and those Pokémon in the list below,
           which make up the No-Eggs egg group.
-        </h3>
+        </p>
       );
     case noEggsGroup:
-      return (
-        <h3> In addition to the Pokémon below, {cleanName} can't breed.</h3>
-      );
+      return <p> In addition to the Pokémon below, {cleanName} can't breed.</p>;
     case currentPokemonIsGenderless:
       return (
-        <h3>
+        <p>
           However, {cleanName} is genderless, so it can only breed with{" "}
-          <span>Ditto</span>.
-        </h3>
+          {dittoSpanElement}.
+        </p>
       );
     default:
       return (
-        <h3>
-          {cleanName} can breed with <span>Ditto</span> and any of the Pokémon
+        <p>
+          {cleanName} can breed with {dittoSpanElement} and any of the Pokémon
           below.
-        </h3>
+        </p>
       );
   }
 };

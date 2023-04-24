@@ -8,6 +8,10 @@ html {
   font-size: 16px;
   --spacing-3: 0.5rem;
   --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 2.5rem;
+  --border-radius: 3px;
   --background-opacity: 0.5;
   --border-width: 1px;
   --border-type: solid;
@@ -63,6 +67,10 @@ body {
 }
 
 @media (min-width: 992px) {
+  html {
+    overflow-y: hidden;
+  }
+
   #egg-groups-results-wrapper,
   #pokemon-selector-wrapper {
     height: 100vh;
@@ -72,16 +80,32 @@ body {
 select,
 option,
 input,
-li {
-  font-size: 1rem;
+li,
+p {
+  font-size: var(--spacing-4);
+}
+
+h1 {
+  font-size: var(--spacing-6);
+}
+
+h2 {
+  font-size: var(--spacing-5);
 }
 
 @media (min-width: 992px) {
   select,
   option,
   input,
-  li {
-    font-size: 1.5rem;
+  li,
+  p {
+    font-size: var(--spacing-5);
+  }
+  h1 {
+    font-size: var(--spacing-7);
+  }
+  h2 {
+    font-size: var(--spacing-6);
   }
 }
 
@@ -89,13 +113,23 @@ input {
   padding-left: 0.5em;
 }
 
-h1,
 p,
+h1,
 h2,
 h3 {
   display: block;
   align-self: center;
   text-align: center;
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
 
 select,
@@ -105,7 +139,50 @@ input {
   align-self: center;
 }
 
-// ********************************** cover section **********************************
+#title,
+p,
+#results-header-wrapper {
+  background-color: rgba(240, 240, 240, var(--background-opacity));
+  background-color: pink; // will remove once done developing
+  border-width: 1px;
+  // border-style: inset;
+  border-color: rgb(118, 118, 118);
+}
+
+#cover-image-wrapper,
+#pokemon-image-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#pokemon-image,
+#cover-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+input {
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+@media (min-width: 992px) {
+  select,
+  #results-header-wrapper {
+    margin-top: var(--spacing-4);
+  }
+
+  #pokemon-image-wrapper {
+    margin-bottom: var(--spacing-4);
+  }
+}
+
+// ********************************** cover section only **********************************
 
 @media (min-width: 992px) {
   #cover-wrapper {
@@ -113,28 +190,39 @@ input {
   }
 }
 
-// ********************************** left/top half only (PokemonSelector, SearchBox, and PokemonImage) **********************************
-
-select {
-  margin-top: var(--spacing-4);
-}
-
-select,
-#search {
-  margin-bottom: var(--spacing-3);
-}
-
-#search,
-#pokemon-image-wrapper {
-  margin-top: var(--spacing-3);
-}
-
-#pokemon-image-wrapper {
-  margin-bottom: var(--spacing-4);
-}
-
-// ********************************** right/bottom half (ResultsHeader, FilterBox, and EggGroups) **********************************
+// ********************************** right/bottom half only (ResultsHeader, FilterBox, and EggGroups) **********************************
 
 li {
   list-style: none;
+}
+
+.egg-group-super-wrapper {
+  width: 12em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: var(--spacing-4);
+  max-height: 60vh;
+}
+
+@media (min-width: 992px) {
+  .egg-group-super-wrapper {
+    width: 15em;
+  }
+}
+
+.egg-group-wrapper {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+}
+
+@media (min-width: 576px) {
+  .egg-group-super-wrapper {
+    height: 60vh;
+  }
+}
+
+ul {
+  overflow-y: auto;
 }

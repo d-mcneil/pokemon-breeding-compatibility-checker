@@ -40,4 +40,7 @@ export const GENDERLESS_POKEMON = [
 
 export const DITTO = { name: "ditto", dexNumber: 132 };
 
-export const NO_EGGS = "no-eggs";
+export const NO_EGGS = {
+  name: "no-eggs",
+  url: "https://pokeapi.co/api/v2/egg-group/no-eggs",
+};

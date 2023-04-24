@@ -71,7 +71,7 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
 
   const renderPokemonSelectorSection = (
     <div
-      className="col-12 col-lg-5 d-flex flex-column justify-content-center "
+      className="col-12 col-lg-5 d-flex flex-column justify-content-center"
       id="pokemon-selector-wrapper"
     >
       <PokemonSelector />
@@ -88,9 +88,6 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
       <ResultsHeader />
       <SearchBox action={updateFilterfield} placeholder="Filter" />
       <ResultsEggGroups />
-      {/* <EggGroup />
-            <EggGroupHeader />
-            <EggGroupList /> */}
     </div>
   );
 
