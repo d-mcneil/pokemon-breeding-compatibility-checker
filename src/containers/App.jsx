@@ -70,7 +70,10 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
   );
 
   const renderPokemonSelectorSection = (
-    <div className="col-12 col-lg-5 d-flex flex-column justify-content-center vh-100">
+    <div
+      className="col-12 col-lg-5 d-flex flex-column justify-content-center "
+      id="pokemon-selector-wrapper"
+    >
       <PokemonSelector />
       <SearchBox action={updateSearchfield} />
       <PokemonImage />

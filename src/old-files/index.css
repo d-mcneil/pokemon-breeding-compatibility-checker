@@ -9,7 +9,6 @@
 }
 
 li {
-  list-style: none;
   text-align: start;
   padding-left: 2px;
   padding-bottom: 1px;
@@ -116,88 +115,4 @@ select,
 .directions,
 #search {
   box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 15px;
-}
-
-/* https://bulbapedia.bulbagarden.net/wiki/Egg_Group */
-.Monster {
-  background: rgba(210, 80, 100, 0.5);
-  border: 1px solid #933846;
-}
-
-/* humanshape */
-.Human-Like {
-  background: rgba(210, 150, 130, 0.5);
-  border: 1px solid #93695b;
-}
-
-.Water1 {
-  background: rgba(151, 181, 253, 0.5);
-  border: 1px solid #697fb1;
-}
-
-.Water2 {
-  background: rgba(114, 154, 250, 0.5);
-  border: 1px solid #506caf;
-}
-
-.Water3 {
-  background: rgba(88, 118, 190, 0.5);
-  border: 1px solid #3d5285;
-}
-
-.Bug {
-  background: rgba(170, 194, 42, 0.5);
-  border: 1px solid #77881d;
-}
-
-.Mineral {
-  background: rgba(122, 98, 82, 0.5);
-  border: 1px solid #554439;
-}
-
-.Flying {
-  background: rgba(178, 154, 250, 0.5);
-  border: 1px solid #7c6caf;
-}
-
-.Amorphous {
-  background: rgba(138, 138, 138, 0.5);
-  border: 1px solid #606060;
-}
-
-/* ground */
-.Field {
-  background: rgba(224, 192, 104, 0.5);
-  border: 1px solid #9d8649;
-}
-
-.Fairy {
-  background: rgba(255, 200, 240, 0.5);
-  border: 1px solid #b38ca8;
-}
-
-.Ditto {
-  background: rgba(166, 100, 191, 0.5);
-  border: 1px solid #744686;
-}
-
-.Ditto-text {
-  color: rgb(166, 100, 191);
-}
-
-/* plant */
-.Grass {
-  background: rgba(130, 210, 90, 0.5);
-  border: 1px solid #5b933f;
-}
-
-.Dragon {
-  background: rgba(122, 66, 255, 0.5);
-  border: 1px solid #552eb3;
-}
-
-.No-Eggs {
-  background: rgba(51, 51, 51, 0.5);
-  border: 1px solid #232323;
-  /* color: #f0f0f0; */
 }

@@ -8,6 +8,40 @@ html {
   font-size: 16px;
   --spacing-3: 0.5rem;
   --spacing-4: 1rem;
+  --background-opacity: 0.5;
+  --border-width: 1px;
+  --border-type: solid;
+  /* https://bulbapedia.bulbagarden.net/wiki/Egg_Group */
+  --monster-border: #933846;
+  --human-like-border: #93695b;
+  --water1-border: #697fb1;
+  --water2-border: #506caf;
+  --water3-border: #3d5285;
+  --bug-border: #77881d;
+  --mineral-border: #554439;
+  --flying-border: #7c6caf;
+  --amorphous-border: #606060;
+  --field-border: #9d8649;
+  --fairy-border: #b38ca8;
+  --ditto-border: #744686;
+  --grass-border: #5b933f;
+  --dragon-border: #552eb3;
+  --no-eggs-border: #232323;
+  --monster-color: 210, 80, 100;
+  --human-like-color: 210, 150, 130;
+  --water1-color: 151, 181, 253;
+  --water2-color: 114, 154, 250;
+  --water3-color: 88, 118, 190;
+  --bug-color: 170, 194, 42;
+  --mineral-color: 122, 98, 82;
+  --flying-color: 178, 154, 250;
+  --amorphous-color: 138, 138, 138;
+  --field-color: 224, 192, 104;
+  --fairy-color: 255, 200, 240;
+  --ditto-color: 166, 100, 191;
+  --grass-color: 130, 210, 90;
+  --dragon-color: 122, 66, 255;
+  --no-eggs-color: 51, 51, 51;
 }
 
 body {
@@ -28,22 +62,47 @@ body {
   line-height: 1.5em;
 }
 
+@media (min-width: 992px) {
+  #egg-groups-results-wrapper,
+  #pokemon-selector-wrapper {
+    height: 100vh;
+  }
+}
+
 select,
 option,
-input {
+input,
+li {
   font-size: 1rem;
 }
 
 @media (min-width: 992px) {
   select,
   option,
-  input {
+  input,
+  li {
     font-size: 1.5rem;
   }
 }
 
 input {
   padding-left: 0.5em;
+}
+
+h1,
+p,
+h2,
+h3 {
+  display: block;
+  align-self: center;
+  text-align: center;
+}
+
+select,
+input {
+  width: 12em;
+  display: block;
+  align-self: center;
 }
 
 // ********************************** cover section **********************************
@@ -54,14 +113,7 @@ input {
   }
 }
 
-h1,
-p {
-  display: block;
-  align-self: center;
-  text-align: center;
-}
-
-// ********************************** left/top half (PokemonSelector, SearchBox, and PokemonImage) **********************************
+// ********************************** left/top half only (PokemonSelector, SearchBox, and PokemonImage) **********************************
 
 select {
   margin-top: var(--spacing-4);
@@ -69,9 +121,6 @@ select {
 
 select,
 #search {
-  width: 12em;
-  display: block;
-  align-self: center;
   margin-bottom: var(--spacing-3);
 }
 
@@ -84,9 +133,8 @@ select,
   margin-bottom: var(--spacing-4);
 }
 
-// ********************************** right/bottom half (, , and ) **********************************
-@media (min-width: 992px) {
-  #egg-groups-results-wrapper {
-    height: 100vh;
-  }
+// ********************************** right/bottom half (ResultsHeader, FilterBox, and EggGroups) **********************************
+
+li {
+  list-style: none;
 }
