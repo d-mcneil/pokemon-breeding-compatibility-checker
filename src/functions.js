@@ -32,6 +32,46 @@ export const cleanPokemonName = (name) => {
       return "Sirfetch'd";
     case "farfetchd":
       return "Farfetch'd";
+    case "great-tusk":
+      return "Great Tusk";
+    case "scream-tail":
+      return "Scream Tail";
+    case "brute-bonnet":
+      return "Brute Bonnet";
+    case "flutter-mane":
+      return "Flutter Mane";
+    case "slither-wing":
+      return "Slither Wing";
+    case "sandy-shocks":
+      return "Sandy Shocks";
+    case "iron-treads":
+      return "Iron Treads";
+    case "iron-bundle":
+      return "Iron Bundle";
+    case "iron-hands":
+      return "Iron Hands";
+    case "iron-jugulis":
+      return "Iron Jugulis";
+    case "iron-moth":
+      return "Iron Moth";
+    case "iron-thorns":
+      return "Iron Thorns";
+    case "roaring-moon":
+      return "Roaring Moon";
+    case "iron-valiant":
+      return "Iron Valiant";
+    case "walking-wake":
+      return "Walking Wake";
+    case "iron-leaves":
+      return "Iron Leaves";
+    case "wo-chien":
+      return "Wo-Chien";
+    case "chien-pao":
+      return "Chien-Pao";
+    case "ting-lu":
+      return "Ting-Lu";
+    case "chi-yu":
+      return "Chi-Yu";
     default:
       return name.charAt(0).toUpperCase() + name.slice(1);
   }
