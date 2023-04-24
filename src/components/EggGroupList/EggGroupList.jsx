@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { cleanPokemonName, stringDexNumber } from "../../functions";
+import {
+  borderStyle,
+  cleanPokemonName,
+  stringDexNumber,
+} from "../../functions";
 import { DITTO, GENDERLESS_POKEMON, NO_EGGS } from "../../constantsNonRedux";
 
 const mapStateToProps = (state) => ({
@@ -60,7 +64,11 @@ const EggGroupList = ({
       </li>
     ));
 
-  return <ul>{renderResultPokemon}</ul>;
+  return (
+    <ul style={{ borderTop: borderStyle(eggGroup.name) }}>
+      {renderResultPokemon}
+    </ul>
+  );
 };
 
 export default connect(mapStateToProps)(EggGroupList);

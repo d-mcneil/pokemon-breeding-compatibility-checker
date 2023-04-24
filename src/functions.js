@@ -1,3 +1,5 @@
+import { EGG_GROUP_CSS_VARIABLES } from "./constantsNonRedux";
+
 export const cleanPokemonName = (name) => {
   switch (name) {
     case "mr-mime":
@@ -71,3 +73,26 @@ export const fetchPictureUrl = (url = "") => {
     .then((response) => response.json())
     .then((data) => data.sprites.other["official-artwork"].front_default);
 };
+
+export const textColorStyle = (eggGroup) => ({
+  color:
+    EGG_GROUP_CSS_VARIABLES[
+      `${cleanEggGroupName(eggGroup).toLowerCase().replace("-", "")}Border`
+    ],
+});
+
+export const borderStyle = (eggGroup) =>
+  `1px solid ${
+    EGG_GROUP_CSS_VARIABLES[
+      `${cleanEggGroupName(eggGroup).toLowerCase().replace("-", "")}Border`
+    ]
+  }`;
+
+export const backgroundAndBorderStyle = (eggGroup) => ({
+  backgroundColor: `rgba(${
+    EGG_GROUP_CSS_VARIABLES[
+      `${cleanEggGroupName(eggGroup).toLowerCase().replace("-", "")}Color`
+    ]
+  }, 0.5)`,
+  border: borderStyle(eggGroup),
+});

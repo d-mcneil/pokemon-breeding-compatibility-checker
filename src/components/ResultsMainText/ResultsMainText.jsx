@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { cleanEggGroupName, cleanPokemonName } from "../../functions";
+import {
+  cleanEggGroupName,
+  cleanPokemonName,
+  textColorStyle,
+} from "../../functions";
 
 const mapStateToProps = (state) => ({
   name: state.currentPokemon.name,
@@ -15,15 +19,25 @@ const ResultsMainText = ({ name, eggGroups }) => {
     const eggGroup2 = eggGroups[1].name;
     return (
       <h2>
-        {cleanName} is in the <span>{cleanEggGroupName(eggGroup1)}</span> and{" "}
-        <span>{cleanEggGroupName(eggGroup2)}</span> egg groups.
+        {cleanName} is in the{" "}
+        <span style={textColorStyle(eggGroup1)}>
+          {cleanEggGroupName(eggGroup1)}
+        </span>{" "}
+        and{" "}
+        <span style={textColorStyle(eggGroup2)}>
+          {cleanEggGroupName(eggGroup2)}
+        </span>{" "}
+        egg groups.
       </h2>
     );
   } else {
     return (
       <h2>
-        {cleanName} is in the <span>{cleanEggGroupName(eggGroup1)}</span> egg
-        group.
+        {cleanName} is in the{" "}
+        <span style={textColorStyle(eggGroup1)}>
+          {cleanEggGroupName(eggGroup1)}
+        </span>{" "}
+        egg group.
       </h2>
     );
   }

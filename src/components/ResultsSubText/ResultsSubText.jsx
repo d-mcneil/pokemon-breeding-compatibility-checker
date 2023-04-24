@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { DITTO, NO_EGGS } from "../../constantsNonRedux";
-import { cleanPokemonName } from "../../functions";
+import { cleanPokemonName, textColorStyle } from "../../functions";
 
 const mapStateToProps = (state) => ({
   name: state.currentPokemon.name,
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const ResultsSubText = ({ name, currentPokemonIsGenderless, noEggsGroup }) => {
   const cleanName = cleanPokemonName(name);
-  const dittoSpanElement = <span>Ditto</span>;
+  const dittoSpanElement = <span style={textColorStyle("ditto")}>Ditto</span>;
   switch (true) {
     case name === DITTO.name:
       return (
@@ -19,7 +19,8 @@ const ResultsSubText = ({ name, currentPokemonIsGenderless, noEggsGroup }) => {
           That isn't a typo; {dittoSpanElement} is literally in the{" "}
           {dittoSpanElement} egg group. It can breed with all Pokémon... except
           for other {dittoSpanElement} and those Pokémon in the list below,
-          which make up the No-Eggs egg group.
+          which make up the{" "}
+          <span style={textColorStyle("no-eggs")}>No-Eggs</span> egg group.
         </p>
       );
     case noEggsGroup:
