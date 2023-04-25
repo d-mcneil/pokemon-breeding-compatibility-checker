@@ -1,6 +1,5 @@
 import { batch } from "react-redux";
 import { DITTO, GENDERLESS_POKEMON, NO_EGGS } from "../constantsNonRedux";
-import { fetchPictureUrl } from "../functions";
 import * as reduxConstants from "./constants";
 
 export const populatePokemonSelector = (pokemonObjectArray = []) => ({
@@ -32,21 +31,28 @@ const setEggGroups = (eggGroups = []) => ({
 export const selectPokemon =
   (pokemon = {}) =>
   (dispatch) => {
-    dispatch(setPokemon(pokemon));
     if (pokemon.name === DITTO.name) {
       // ditto is a unique pokemon, so the data has to be slightly altered if ditto is selected
-      dispatch(
-        setEggGroups([
-          {
-            name: DITTO.name,
-            url: NO_EGGS.url,
-          },
-        ])
-      );
+      batch(() => {
+        dispatch(
+          setEggGroups([
+            {
+              name: DITTO.name,
+              url: NO_EGGS.url,
+            },
+          ])
+        );
+        dispatch(setPokemon(pokemon));
+      });
     } else {
       fetch(pokemon.url) // fetch information about egg groups
         .then((response) => response.json())
-        .then((data) => dispatch(setEggGroups(data.egg_groups)));
+        .then((data) => {
+          batch(() => {
+            dispatch(setEggGroups(data.egg_groups));
+            dispatch(setPokemon(pokemon));
+          });
+        });
     }
   };
 

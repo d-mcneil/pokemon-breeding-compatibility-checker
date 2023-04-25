@@ -36,6 +36,8 @@ export const GENDERLESS_POKEMON = [
   "sinistea",
   "polteageist",
   "falinks",
+  "tandemaus",
+  "maushold",
 ];
 
 export const DITTO = { name: "ditto", dexNumber: 132 };
