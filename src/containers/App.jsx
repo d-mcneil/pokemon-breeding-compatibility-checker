@@ -43,6 +43,7 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
     mediaQuery.addEventListener("change", handleDisplayChange);
     handleDisplayChange(mediaQuery); // initial check of media query
     return () => mediaQuery.removeEventListener("change", handleDisplayChange); // remove listener on unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // populate pokemon selector
@@ -57,6 +58,7 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
       )
       .then(loadPokemonList)
       .catch(console.log);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderCoverSectionWhenNoPokemonSelected = currentPokemonName ? null : (

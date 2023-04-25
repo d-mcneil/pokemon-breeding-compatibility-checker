@@ -29,11 +29,12 @@ const SelectorOption = ({
   // prettier-ignore
   return (
     <option 
-    value={pokemon.url}
-    data-name={pokemon.name}
-    data-dex-number={pokemon.dexNumber}
-    onClick={() => largeDisplaySize ? handleOnClick() : undefined}>
-        {stringDexNumber(pokemon.dexNumber)} &nbsp; {cleanPokemonName(pokemon.name)}
+      value={pokemon.url}
+      data-name={pokemon.name}
+      data-dex-number={pokemon.dexNumber}
+      onClick={() => largeDisplaySize ? handleOnClick() : undefined}
+    >
+      {stringDexNumber(pokemon.dexNumber)} &nbsp; {cleanPokemonName(pokemon.name)}
     </option>
   );
 };

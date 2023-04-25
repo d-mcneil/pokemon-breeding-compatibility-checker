@@ -40,6 +40,7 @@ const PokemonSelector = ({
       const { name, url, dexNumber } = filteredPokemonObjectArray[0];
       onSelectPokemon({ name, dexNumber, url });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredPokemonObjectArray]);
 
   const handleOnChange = (event) => {

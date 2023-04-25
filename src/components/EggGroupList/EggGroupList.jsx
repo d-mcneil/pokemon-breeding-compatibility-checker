@@ -49,6 +49,7 @@ const EggGroupList = ({
         })
         .catch(console.log);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderResultPokemon = pokemonList
