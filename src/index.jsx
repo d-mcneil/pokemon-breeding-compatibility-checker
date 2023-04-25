@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import configureStore from "./redux/store";
@@ -8,7 +8,7 @@ import configureStore from "./redux/store";
 import App from "./containers/App";
 
 import "../node_modules/bootstrap/dist/css/bootstrap-grid.css";
-import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css"; // vh-100
+import "../node_modules/bootstrap/dist/css/bootstrap-utilities.css";
 
 import "./index.scss";
 
@@ -27,7 +27,7 @@ root.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-// serviceWorkerRegistration.register();
+serviceWorkerRegistration.register();
 // serviceWorkerRegistration.unregister();
 
 // If you want to start measuring performance in your app, pass a function
