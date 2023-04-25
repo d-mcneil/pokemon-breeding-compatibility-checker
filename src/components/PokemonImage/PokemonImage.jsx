@@ -13,7 +13,7 @@ const PokemonImage = ({ url, name }) => {
 
   useEffect(() => {
     if (url) {
-      fetchPictureUrl(url).then(setImageUrl);
+      fetchPictureUrl(url).then(setImageUrl).catch(console.log);
     }
   }, [url]);
 

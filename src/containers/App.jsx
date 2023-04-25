@@ -55,7 +55,8 @@ const App = ({ currentPokemonName, setDisplaySize, loadPokemonList }) => {
           dexNumber: index + 1,
         }))
       )
-      .then(loadPokemonList);
+      .then(loadPokemonList)
+      .catch(console.log);
   }, []);
 
   const renderCoverSectionWhenNoPokemonSelected = currentPokemonName ? null : (

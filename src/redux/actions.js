@@ -52,7 +52,8 @@ export const selectPokemon =
             dispatch(setEggGroups(data.egg_groups));
             dispatch(setPokemon(pokemon));
           });
-        });
+        })
+        .catch(console.log);
     }
   };
 
