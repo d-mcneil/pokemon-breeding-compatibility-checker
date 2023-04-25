@@ -63,8 +63,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // https://cdn.wallpapersafari.com/85/89/6lOBvr.png
-  background: url(./assets/background.png) no-repeat center center fixed;
-  background-size: cover;
+  // background: url(./assets/background.png) no-repeat center center fixed;
+  // background-size: cover;
+  background: url(./assets/background.png) no-repeat top center fixed;
+  background-size: 100% 110%;
 }
 
 * {
@@ -325,6 +327,12 @@ select {
   border-width: var(--border-width);
   border-style: inset;
   border-color: rgb(118, 118, 118);
+}
+
+li,
+option {
+  font-family: Arial, Helvetica, sans-serif;
+  font-kerning: none;
 }
 
 li {
