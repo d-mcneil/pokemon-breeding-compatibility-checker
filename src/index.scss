@@ -1,0 +1,344 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  --spacing-2: 0.25rem;
+  --spacing-3: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 2.5rem;
+  --border-radius: 10px;
+  --background-opacity: 0.5;
+  --border-width: 1px;
+  // colors come from https://bulbapedia.bulbagarden.net/wiki/Egg_Group
+  // these variables were to moved to ./constantsNonRedux.js
+  // --monster-border: #933846;
+  // --human-like-border: #93695b;
+  // --water1-border: #697fb1;
+  // --water2-border: #506caf;
+  // --water3-border: #3d5285;
+  // --bug-border: #77881d;
+  // --mineral-border: #554439;
+  // --flying-border: #7c6caf;
+  // --amorphous-border: #606060;
+  // --field-border: #9d8649;
+  // --fairy-border: #b38ca8;
+  // --ditto-border: #744686;
+  // --grass-border: #5b933f;
+  // --dragon-border: #552eb3;
+  // --no-eggs-border: #232323;
+  // --monster-color: 210, 80, 100;
+  // --human-like-color: 210, 150, 130;
+  // --water1-color: 151, 181, 253;
+  // --water2-color: 114, 154, 250;
+  // --water3-color: 88, 118, 190;
+  // --bug-color: 170, 194, 42;
+  // --mineral-color: 122, 98, 82;
+  // --flying-color: 178, 154, 250;
+  // --amorphous-color: 138, 138, 138;
+  // --field-color: 224, 192, 104;
+  // --fairy-color: 255, 200, 240;
+  // --ditto-color: 166, 100, 191;
+  // --grass-color: 130, 210, 90;
+  // --dragon-color: 122, 66, 255;
+  // --no-eggs-color: 51, 51, 51;
+}
+
+@media (min-width: 992px) {
+  html {
+    overflow-y: hidden;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // https://cdn.wallpapersafari.com/85/89/6lOBvr.png
+  // background: url(./assets/background.png) no-repeat center center fixed;
+  // background-size: cover;
+  background: url(./assets/background.png) no-repeat top center fixed;
+  background-size: 100% 110%;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.5em;
+}
+
+// ********************************** spacing **********************************
+p,
+h1,
+h2,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+#cover-image-wrapper {
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+@media (min-width: 992px) {
+  select,
+  #results-header-wrapper {
+    margin-top: var(--spacing-4);
+  }
+
+  #pokemon-image-wrapper {
+    margin-bottom: var(--spacing-4);
+  }
+}
+
+.egg-group-super-wrapper {
+  margin-bottom: var(--spacing-4);
+}
+
+#results-header-wrapper,
+#title,
+#instructions {
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+input,
+li {
+  padding-left: var(--spacing-4);
+}
+
+@media (min-width: 992px) {
+  select {
+    padding-left: var(--spacing-4);
+  }
+}
+
+select {
+  padding-top: var(--spacing-3);
+  padding-bottom: var(--spacing-3);
+}
+
+option {
+  padding-bottom: var(--spacing-2);
+}
+
+h2 {
+  padding-bottom: var(--spacing-3);
+}
+
+.egg-group-wrapper {
+  h1 {
+    padding-top: var(--spacing-3);
+    padding-bottom: var(--spacing-3);
+  }
+}
+
+ul {
+  padding-bottom: var(--spacing-3);
+  padding-top: var(--spacing-2);
+}
+
+// ********************************** font size **********************************
+select,
+option,
+input,
+li,
+p {
+  font-size: var(--spacing-4);
+}
+
+h2 {
+  font-size: var(--spacing-5);
+}
+
+h1 {
+  font-size: var(--spacing-6);
+}
+
+@media (min-width: 992px) {
+  select,
+  option,
+  input,
+  li,
+  p {
+    font-size: var(--spacing-5);
+  }
+
+  h2 {
+    font-size: var(--spacing-6);
+  }
+
+  h1 {
+    font-size: var(--spacing-7);
+  }
+}
+
+// ********************************** images **********************************
+#cover-image-wrapper,
+#pokemon-image-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#cover-image-wrapper {
+  width: 80%;
+}
+
+#pokemon-image-wrapper {
+  max-height: 475px;
+  max-width: 475px;
+  height: 50%;
+  width: 80%;
+}
+
+#pokemon-image,
+#cover-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+// ********************************** element widths **********************************
+
+select,
+input,
+.egg-group-super-wrapper {
+  width: 12em;
+}
+
+@media (min-width: 992px) {
+  .egg-group-super-wrapper {
+    width: 18rem;
+  }
+}
+
+#title,
+#instructions,
+#results-header-wrapper {
+  max-width: 80%;
+}
+
+// ********************************** element heights **********************************
+@media (min-width: 992px) {
+  #egg-groups-results-wrapper,
+  #pokemon-selector-wrapper {
+    height: 100vh;
+  }
+}
+
+// ***** screens less than 600 px tall *****
+.egg-group-super-wrapper {
+  max-height: 50vh;
+}
+.egg-group-wrapper {
+  max-height: 50vh;
+}
+@media (min-width: 576px) {
+  .egg-group-super-wrapper {
+    height: 50vh;
+  }
+}
+
+// ***** screens more than 600 px tall *****
+@media (min-height: 700px) {
+  .egg-group-super-wrapper {
+    max-height: 60vh;
+  }
+  .egg-group-wrapper {
+    max-height: 60vh;
+  }
+  @media (min-width: 576px) {
+    .egg-group-super-wrapper {
+      height: 60vh;
+    }
+  }
+}
+
+// ********************************** alignment **********************************
+p,
+h1,
+h2,
+select,
+input,
+#results-header-wrapper {
+  display: block;
+  align-self: center;
+}
+
+p,
+h1,
+h2 {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  #cover-wrapper {
+    order: 2;
+  }
+}
+
+.egg-group-super-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.egg-group-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  overflow-y: auto;
+}
+// ********************************** styles **********************************
+
+select,
+input,
+#results-header-wrapper,
+.egg-group-wrapper,
+#title,
+#instructions {
+  box-shadow: rgba(0, 0, 0, 0.8) 10px 5px 15px;
+  border-radius: var(--border-radius);
+}
+
+#title,
+#instructions,
+#results-header-wrapper,
+input,
+select {
+  background-color: rgba(240, 240, 240, var(--background-opacity));
+  border-width: var(--border-width);
+  border-style: inset;
+  border-color: rgb(118, 118, 118);
+}
+
+li,
+option {
+  font-family: Arial, Helvetica, sans-serif;
+  font-kerning: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
